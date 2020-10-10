@@ -37,18 +37,28 @@ export default function AddressForm() {
             required
             id="address1"
             name="address1"
-            label="Address line 1"
+            label="Flat, House no, Building, Company, Apartment"
             fullWidth
             autoComplete="shipping address-line1"
           />
         </Grid>
         <Grid item xs={12}>
           <TextField
+            required
             id="address2"
             name="address2"
-            label="Address line 2"
+            label="Area, Street, Colony, Sector, Village"
             fullWidth
             autoComplete="shipping address-line2"
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            id="landmark"
+            name="landmark"
+            label="Landmark"
+            fullWidth
+            autoComplete="landmark"
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -62,7 +72,7 @@ export default function AddressForm() {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField id="state" name="state" label="State/Province/Region" fullWidth />
+          <TextField required id="state" name="state" label="State/Province/Region" fullWidth />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
@@ -84,10 +94,24 @@ export default function AddressForm() {
             autoComplete="shipping country"
           />
         </Grid>
-        <Grid item xs={12}>
-          <FormControlLabel
-            control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
-            label="Use this address for payment details"
+        <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            id="phoneNumber"
+            name="phoneNumber"
+            label="Phone Number"
+            fullWidth
+            autoComplete="phone number"
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            id="emailId"
+            name="emailId"
+            label="Email Address"
+            fullWidth
+            autoComplete="email address"
           />
         </Grid>
       </Grid>
