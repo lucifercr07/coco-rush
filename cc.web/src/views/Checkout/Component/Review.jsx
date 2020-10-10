@@ -7,10 +7,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
 
 const products = [
-  { name: 'Product 1', desc: 'A nice thing', price: '$9.99' },
-  { name: 'Product 2', desc: 'Another thing', price: '$3.45' },
-  { name: 'Product 3', desc: 'Something else', price: '$6.51' },
-  { name: 'Product 4', desc: 'Best thing of all', price: '$14.11' },
+  { name: 'Product 1', desc: 'A nice thing', price: '$9.99', quantity: 2 },
+  { name: 'Product 2', desc: 'Another thing', price: '$3.45', quantity: 5 },
+  { name: 'Product 3', desc: 'Something else', price: '$6.51', quantity: 1 },
+  { name: 'Product 4', desc: 'Best thing of all', price: '$14.11', quantity: 3 },
   { name: 'Shipping', desc: '', price: 'Free' },
 ];
 const addresses = ['1 Material-UI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
@@ -45,7 +45,8 @@ export default function Review() {
         {products.map((product) => (
           <ListItem className={classes.listItem} key={product.name}>
             <ListItemText primary={product.name} secondary={product.desc} />
-            <Typography variant="body2">{product.price}</Typography>
+            <Typography variant="body2">{product.price}</Typography>&nbsp;
+            <Typography variant="body2">x {product.quantity}</Typography>
           </ListItem>
         ))}
         <ListItem className={classes.listItem}>
@@ -68,16 +69,12 @@ export default function Review() {
             Payment details
           </Typography>
           <Grid container>
-            {payments.map((payment) => (
-              <React.Fragment key={payment.name}>
-                <Grid item xs={6}>
-                  <Typography gutterBottom>{payment.name}</Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography gutterBottom>{payment.detail}</Typography>
-                </Grid>
-              </React.Fragment>
-            ))}
+            <Grid item xs={6}>
+              <Typography gutterBottom>UPI ID</Typography>
+            </Grid>
+            <Grid item xs={6}>
+              <Typography gutterBottom style={{display: 'inline-block'}}>customer@upi</Typography>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
