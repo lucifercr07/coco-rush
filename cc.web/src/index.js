@@ -6,16 +6,13 @@ import { createStore } from 'redux';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import routes from './routes';
-
-const store = createStore(
-  reducer
-);
+import store from './store';
 
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       {routes}
-    </BrowserRouter>
+    </BrowserRouter>,
   </Provider>,
   document.getElementById('root')
 );
