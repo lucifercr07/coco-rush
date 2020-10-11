@@ -15,7 +15,7 @@ const mapStateToProps = ({ checkout }) => {
       addressLine1: get(checkout, 'addressLine1', ''),
       addressLine2: get(checkout, 'addressLine2', ''),
       city: get(checkout, 'city', ''),
-      zip: get(checkout, 'postalCode', ''),
+      postalCode: get(checkout, 'postalCode', ''),
       state: get(checkout, 'state', ''),
       landmark: get(checkout, 'landmark', ''),
       country: get(checkout, 'country', ''),
@@ -25,10 +25,17 @@ const mapStateToProps = ({ checkout }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    changeFirstName: ({ target }) => {
-      console.log(target)
-      return dispatch(actionCreators.changeFirstName(target.value))
-    }
+    changeFirstName: ({ target }) => dispatch(actionCreators.changeFirstName(target.value)),
+    changeLastName: ({ target }) => dispatch(actionCreators.changeLastName(target.value)),
+    changePhoneNumber: ({ target }) => dispatch(actionCreators.changePhoneNumber(target.value)),
+    changeEmailAddress: ({ target }) => dispatch(actionCreators.changeEmailAddress(target.value)),
+    changeAddressLine1: ({ target }) => dispatch(actionCreators.changeAddressLine1(target.value)),
+    changeAddressLine2: ({ target }) => dispatch(actionCreators.changeAddressLine2(target.value)),
+    changeCity: ({ target }) => dispatch(actionCreators.changeCity(target.value)),
+    changeCountry: ({ target }) => dispatch(actionCreators.changeCountry(target.value)),
+    changePostalCode: ({ target }) => dispatch(actionCreators.changePostalCode(target.value)),
+    changeState: ({ target }) => dispatch(actionCreators.changeState(target.value)),
+    changeLandmark: ({ target }) => dispatch(actionCreators.changeLandmark(target.value)),
   };
 }
 // Exports

@@ -2,14 +2,22 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 
 export default function AddressForm(props) {
   const {
     customer,
     address,
-    changeFirstName
+    changeFirstName,
+    changeLastName,
+    changePhoneNumber,
+    changeEmailAddress,
+    changeAddressLine1,
+    changeAddressLine2,
+    changeCity,
+    changeCountry,
+    changePostalCode,
+    changeState,
+    changeLandmark,
   } = props;
   return (
     <React.Fragment>
@@ -24,7 +32,8 @@ export default function AddressForm(props) {
             name="firstName"
             label="First name"
             fullWidth
-            value={customer.firstName}
+            error={customer.firstName.error}
+            value={customer.firstName.value}
             autoComplete="given-name"
             onChange={changeFirstName}
           />
@@ -36,7 +45,9 @@ export default function AddressForm(props) {
             name="lastName"
             label="Last name"
             fullWidth
-            value={customer.lastName}
+            onChange={changeLastName}
+            error={customer.lastName.error}
+            value={customer.lastName.value}
             autoComplete="family-name"
           />
         </Grid>
@@ -47,7 +58,9 @@ export default function AddressForm(props) {
             name="address1"
             label="Flat, House no, Building, Company, Apartment"
             fullWidth
-            // value={address.firstName}
+            onChange={changeAddressLine1}
+            error={address.addressLine1.error}
+            value={address.addressLine1.value}
             autoComplete="shipping address-line1"
           />
         </Grid>
@@ -58,6 +71,9 @@ export default function AddressForm(props) {
             name="address2"
             label="Area, Street, Colony, Sector, Village"
             fullWidth
+            onChange={changeAddressLine2}
+            error={address.addressLine2.error}
+            value={address.addressLine2.value}
             autoComplete="shipping address-line2"
           />
         </Grid>
@@ -67,6 +83,9 @@ export default function AddressForm(props) {
             name="landmark"
             label="Landmark"
             fullWidth
+            onChange={changeLandmark}
+            error={address.landmark.error}
+            value={address.landmark.value}
             autoComplete="landmark"
           />
         </Grid>
@@ -77,19 +96,34 @@ export default function AddressForm(props) {
             name="city"
             label="City"
             fullWidth
+            onChange={changeCity}
+            error={address.city.error}
+            value={address.city.value}
             autoComplete="shipping address-level2"
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField required id="state" name="state" label="State/Province/Region" fullWidth />
+          <TextField
+            required
+            id="state"
+            name="state"
+            label="State/Province/Region"
+            fullWidth
+            onChange={changeState}
+            error={address.state.error}
+            value={address.state.value}
+          />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             required
             id="zip"
             name="zip"
-            label="Zip / Postal code"
+            label="Pin / Postal code"
             fullWidth
+            onChange={changePostalCode}
+            error={address.postalCode.error}
+            value={address.postalCode.value}
             autoComplete="shipping postal-code"
           />
         </Grid>
@@ -100,6 +134,9 @@ export default function AddressForm(props) {
             name="country"
             label="Country"
             fullWidth
+            onChange={changeCountry}
+            error={address.country.error}
+            value={address.country.value}
             autoComplete="shipping country"
           />
         </Grid>
@@ -110,7 +147,9 @@ export default function AddressForm(props) {
             name="phoneNumber"
             label="Phone Number"
             fullWidth
-            value={customer.phoneNumber}
+            onChange={changePhoneNumber}
+            error={customer.phoneNumber.error}
+            value={customer.phoneNumber.value}
             autoComplete="phone number"
           />
         </Grid>
@@ -121,7 +160,9 @@ export default function AddressForm(props) {
             name="emailId"
             label="Email Address"
             fullWidth
-            value={customer.emailAddress}
+            onChange={changeEmailAddress}
+            error={customer.emailAddress.error}
+            value={customer.emailAddress.value}
             autoComplete="email address"
           />
         </Grid>
