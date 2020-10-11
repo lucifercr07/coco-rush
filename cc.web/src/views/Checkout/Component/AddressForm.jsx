@@ -5,7 +5,12 @@ import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
-export default function AddressForm() {
+export default function AddressForm(props) {
+  const {
+    customer,
+    address,
+    changeFirstName
+  } = props;
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -19,7 +24,9 @@ export default function AddressForm() {
             name="firstName"
             label="First name"
             fullWidth
+            value={customer.firstName}
             autoComplete="given-name"
+            onChange={changeFirstName}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -29,6 +36,7 @@ export default function AddressForm() {
             name="lastName"
             label="Last name"
             fullWidth
+            value={customer.lastName}
             autoComplete="family-name"
           />
         </Grid>
@@ -39,6 +47,7 @@ export default function AddressForm() {
             name="address1"
             label="Flat, House no, Building, Company, Apartment"
             fullWidth
+            // value={address.firstName}
             autoComplete="shipping address-line1"
           />
         </Grid>
@@ -101,6 +110,7 @@ export default function AddressForm() {
             name="phoneNumber"
             label="Phone Number"
             fullWidth
+            value={customer.phoneNumber}
             autoComplete="phone number"
           />
         </Grid>
@@ -111,6 +121,7 @@ export default function AddressForm() {
             name="emailId"
             label="Email Address"
             fullWidth
+            value={customer.emailAddress}
             autoComplete="email address"
           />
         </Grid>

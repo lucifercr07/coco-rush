@@ -1,0 +1,11 @@
+export const CHANGE_FIRST_NAME = 'CC/addressForm/CHANGE_FIRST_NAME';
+export const CHANGE_LAST_NAME = 'CC/addressForm/CHANGE_LAST_NAME';
+export const CHANGE_ADDRESS_LINE_1 = 'CC/addressForm/ADDRESS_LINE_1';
+export const CHANGE_ADDRESS_LINE_2 = 'CC/addressForm/ADDRESS_LINE_2';
+export const CHANGE_LANDMARK = 'CC/addressForm/LANDMARK';
+export const CHANGE_CITY = 'CC/addressForm/CHANGE_CITY';
+export const CHANGE_POSTAL_CODE = 'CC/addressForm/CHANGE_POSTAL_CODE';
+export const CHANGE_STATE = 'CC/addressForm/CHANGE_STATE';
+export const CHANGE_COUNTRY = 'CC/addressForm/CHANGE_COUNTRY';
+export const CHANGE_EMAIL_ADDRESS = 'CC/addressForm/CHANGE_EMAIL_ADDRESS';
+export const CHANGE_PHONE_NUMBER = 'CC/addressForm/CHANGE_PHONE_NUMBER';
