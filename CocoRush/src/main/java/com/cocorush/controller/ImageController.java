@@ -1,4 +1,4 @@
-package com.CocoRush.controller;
+package com.cocorush.controller;
 
 import java.io.IOException;
 import java.util.Base64;
@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.CocoRush.Service.ImageService;
-import com.CocoRush.entity.Image;
+import com.cocorush.entity.Image;
+import com.cocorush.service.ImageService;
 
 @RestController
 public class ImageController {

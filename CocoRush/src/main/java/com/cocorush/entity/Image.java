@@ -1,4 +1,4 @@
-package com.CocoRush.entity;
+package com.cocorush.entity;
 
 import org.bson.types.Binary;
 import org.springframework.data.annotation.Id;

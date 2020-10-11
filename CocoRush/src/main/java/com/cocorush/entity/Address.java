@@ -1,4 +1,4 @@
-package com.CocoRush.entity;
+package com.cocorush.entity;
 
 public class Address {
 	private String addressLineOne;

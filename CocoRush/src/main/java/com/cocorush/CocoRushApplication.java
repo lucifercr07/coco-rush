@@ -1,17 +1,16 @@
-package com.CocoRush;
+package com.cocorush;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.data.mongodb.core.MongoOperations;
 
-import com.CocoRush.repository.OrderRepository;
+import com.cocorush.config.MongoConfig;
+
 
 @SpringBootApplication
 public class CocoRushApplication {
-	
-	@Autowired
-	OrderRepository orderRepository;
-
 	public static void main(String[] args) {
 		SpringApplication.run(CocoRushApplication.class, args);
 	}
