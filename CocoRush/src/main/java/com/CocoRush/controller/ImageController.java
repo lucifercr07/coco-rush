@@ -1,4 +1,4 @@
-package com.CocoRush.controller;
+package com.cocorush.controller;
 
 import java.io.IOException;
 import java.util.Base64;
@@ -16,15 +16,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.CocoRush.Service.ImageService;
-import com.CocoRush.entity.Image;
+import com.cocorush.service.ImageService;
+import com.cocorush.entity.Image;
 
 @RestController
 public class ImageController {
 	@Autowired
 	ImageService service;
 
-	@PostMapping("/photos/add")
+	@PostMapping("/photos")
 	public String addPhotos(@RequestParam("title") String title, @RequestParam("Image") MultipartFile image) throws IOException {
 		String id = service.addPhoto(title, image);
 		return "redirect:/photos/" + id;

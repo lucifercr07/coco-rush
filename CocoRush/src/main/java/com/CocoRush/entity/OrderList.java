@@ -1,4 +1,4 @@
-package com.CocoRush.entity;
+package com.cocorush.entity;
 
 public class OrderList {
 String productId;

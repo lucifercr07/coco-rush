@@ -1,10 +1,10 @@
-package com.CocoRush;
+package com.cocorush;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.CocoRush.repository.OrderRepository;
+import com.cocorush.repository.OrderRepository;
 
 @SpringBootApplication
 public class CocoRushApplication {

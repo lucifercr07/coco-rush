@@ -1,11 +1,11 @@
-package com.CocoRush.entity;
+package com.cocorush.entity;
 
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection="Order")
+@Document(collection="orders")
 public class Order {
 	@Id
 	private String ID;

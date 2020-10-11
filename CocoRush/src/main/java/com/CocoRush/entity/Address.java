@@ -1,11 +1,13 @@
-package com.CocoRush.entity;
+package com.cocorush.entity;
 
 public class Address {
+
 	private String addressLineOne;
-	  private String addressLineTwo;
-	  private String city;
-	  private String country;
-	public String getAddressLineOne() {
+    private String addressLineTwo;
+    private String city;
+    private String country;
+	
+    public String getAddressLineOne() {
 		return addressLineOne;
 	}
 	public void setAddressLineOne(String addressLineOne) {
@@ -29,7 +31,4 @@ public class Address {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	  
-	  
-
 }

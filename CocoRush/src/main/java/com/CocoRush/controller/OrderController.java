@@ -1,4 +1,4 @@
-package com.CocoRush.controller;
+package com.cocorush.controller;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.CocoRush.Service.OrderService;
-import com.CocoRush.entity.Order;
+import com.cocorush.service.OrderService;
+import com.cocorush.entity.Order;
 
 @RestController
 public class OrderController {
@@ -16,14 +16,13 @@ public class OrderController {
 	@Autowired
 	OrderService service;
 	
-	@PostMapping("/orders/add")
+	@PostMapping("/orders")
 	public String createOrder(Order order) {
 		String response = service.createOrder(order);
 		return "created";
 	}
-	@GetMapping("/orders/getAll")
+	@GetMapping("/orders")
 	public List<Order> getAllOrders() {
 		return service.getAllOrders();
 	}
-	
 }
