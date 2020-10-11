@@ -69,7 +69,7 @@ const steps = ['Shipping address', 'Order Details', 'Payment details'];
 function getStepContent(step, props) {
   switch (step) {
     case 0:
-      return <AddressForm  {...props}/>;
+      return <AddressForm  {...props} />;
     case 1:
       return <Review />;
     case 2:
