@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com</groupId>
-	<artifactId>MongoImage</artifactId>
+	<artifactId>CocoRush</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>MongoImage</name>
+	<name>CocoRush</name>
 	<description>storing image in mongoDB</description>
 
 	<properties>

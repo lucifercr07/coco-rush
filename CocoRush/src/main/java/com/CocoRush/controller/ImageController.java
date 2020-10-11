@@ -1,4 +1,4 @@
-package com.MongoImage.controller;
+package com.CocoRush.controller;
 
 import java.io.IOException;
 import java.util.Base64;
@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.MongoImage.Service.ImageService;
-import com.MongoImage.entity.Image;
+import com.CocoRush.Service.ImageService;
+import com.CocoRush.entity.Image;
 
 @RestController
 public class ImageController {

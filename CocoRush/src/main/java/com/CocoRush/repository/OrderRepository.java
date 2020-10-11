@@ -1,8 +1,8 @@
-package com.MongoImage.repository;
+package com.CocoRush.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.MongoImage.entity.Order;
+import com.CocoRush.entity.Order;
 
 public interface OrderRepository  extends MongoRepository<Order, String> {
 

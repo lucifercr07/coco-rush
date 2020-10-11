@@ -1,4 +1,4 @@
-package com.MongoImage.controller;
+package com.CocoRush.controller;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.MongoImage.Service.OrderService;
-import com.MongoImage.entity.Order;
+import com.CocoRush.Service.OrderService;
+import com.CocoRush.entity.Order;
 
 @RestController
 public class OrderController {

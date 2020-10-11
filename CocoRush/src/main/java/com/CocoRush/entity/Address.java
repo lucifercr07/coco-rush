@@ -1,4 +1,4 @@
-package com.MongoImage.entity;
+package com.CocoRush.entity;
 
 public class Address {
 	private String addressLineOne;

@@ -1,4 +1,4 @@
-package com.MongoImage.Service;
+package com.CocoRush.Service;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.MongoImage.entity.Image;
-import com.MongoImage.repository.PhotoRepository;
+import com.CocoRush.entity.Image;
+import com.CocoRush.repository.PhotoRepository;
 
 @Service
 public class ImageService {

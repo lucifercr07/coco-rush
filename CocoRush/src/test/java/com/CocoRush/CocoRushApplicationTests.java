@@ -1,10 +1,10 @@
-package com.MongoImage;
+package com.CocoRush;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MongoImageApplicationTests {
+class CocoRushApplicationTests {
 
 	@Test
 	void contextLoads() {

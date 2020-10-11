@@ -1,4 +1,4 @@
-package com.MongoImage.entity;
+package com.CocoRush.entity;
 
 import org.bson.types.Binary;
 import org.springframework.data.annotation.Id;
