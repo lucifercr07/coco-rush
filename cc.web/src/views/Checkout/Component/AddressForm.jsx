@@ -56,7 +56,7 @@ export default function AddressForm(props) {
             required
             id="address1"
             name="address1"
-            label="Flat, House no, Building, Company, Apartment"
+            label="Flat, House no, Building, Company"
             fullWidth
             onChange={changeAddressLine1}
             error={address.addressLine1.error}
@@ -134,6 +134,7 @@ export default function AddressForm(props) {
             name="country"
             label="Country"
             fullWidth
+            disabled
             onChange={changeCountry}
             error={address.country.error}
             value={address.country.value}
