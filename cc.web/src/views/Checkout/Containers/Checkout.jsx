@@ -4,22 +4,24 @@ import Checkout from '../Component/Checkout';
 import { actionCreators } from '../../../redux/Checkout';
 
 const mapStateToProps = ({ checkout }) => {
+  const addressForm = checkout.addressForm;
   return {
     customer: {
-      firstName: get(checkout, 'firstName', ''),
-      lastName: get(checkout, 'lastName', ''),
-      phoneNumber: get(checkout, 'phoneNumber', ''),
-      emailAddress: get(checkout, 'emailAddress', ''),
+      firstName: get(addressForm, 'firstName', ''),
+      lastName: get(addressForm, 'lastName', ''),
+      phoneNumber: get(addressForm, 'phoneNumber', ''),
+      emailAddress: get(addressForm, 'emailAddress', ''),
     },
     address: {
-      addressLine1: get(checkout, 'addressLine1', ''),
-      addressLine2: get(checkout, 'addressLine2', ''),
-      city: get(checkout, 'city', ''),
-      postalCode: get(checkout, 'postalCode', ''),
-      state: get(checkout, 'state', ''),
-      landmark: get(checkout, 'landmark', ''),
-      country: get(checkout, 'country', ''),
-    }
+      addressLine1: get(addressForm, 'addressLine1', ''),
+      addressLine2: get(addressForm, 'addressLine2', ''),
+      city: get(addressForm, 'city', ''),
+      postalCode: get(addressForm, 'postalCode', ''),
+      state: get(addressForm, 'state', ''),
+      landmark: get(addressForm, 'landmark', ''),
+      country: get(addressForm, 'country', ''),
+    },
+    invalidForm: get(addressForm, 'invalidForm', false)
   };
 };
 

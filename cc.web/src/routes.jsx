@@ -4,6 +4,7 @@ import { Route, IndexRoute, Redirect } from 'react-router-dom';
 import {
   Checkout,
   Landing,
+  SideBar
 } from './views'
 
 export default (

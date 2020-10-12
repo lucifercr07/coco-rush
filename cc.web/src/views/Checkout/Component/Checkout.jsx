@@ -79,6 +79,21 @@ function getStepContent(step, props) {
   }
 }
 
+function shouldDisableButton(props, activeStep) {
+  console.log(activeStep)
+  switch (activeStep) {
+    case 0:
+      return Object.keys(props.customer).some(key => props.customer[key].error === true)
+        && Object.keys(props.address).some(key => props.address[key].error === true)
+    case 1:
+      return false;
+    case 2:
+      return false;
+    default:
+      throw new Error('Unknown step');
+  }
+}
+
 export default function Checkout(props) {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
@@ -90,7 +105,6 @@ export default function Checkout(props) {
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
-  console.log(props)
 
   return (
     <React.Fragment>
@@ -139,6 +153,7 @@ export default function Checkout(props) {
                       color="primary"
                       onClick={handleNext}
                       className={classes.button}
+                      disabled={props.invalidForm}
                     >
                       {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
                     </Button>

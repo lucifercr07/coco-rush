@@ -64,19 +64,6 @@ export default function Review() {
           <Typography gutterBottom>John Smith</Typography>
           <Typography gutterBottom>{addresses.join(', ')}</Typography>
         </Grid>
-        <Grid item container direction="column" xs={12} sm={6}>
-          <Typography variant="h6" gutterBottom className={classes.title}>
-            Payment details
-          </Typography>
-          <Grid container>
-            <Grid item xs={6}>
-              <Typography gutterBottom>UPI ID</Typography>
-            </Grid>
-            <Grid item xs={6}>
-              <Typography gutterBottom style={{display: 'inline-block'}}>customer@upi</Typography>
-            </Grid>
-          </Grid>
-        </Grid>
       </Grid>
     </React.Fragment>
   );
