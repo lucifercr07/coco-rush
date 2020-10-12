@@ -18,20 +18,18 @@ public class ImageService {
 	PhotoRepository repository;
 
 	public String addPhoto(String title, MultipartFile file) throws IOException {
-
 		Image image = new Image(title);
 		image.setImage(new Binary(BsonBinarySubType.BINARY, file.getBytes()));
 		image = repository.insert(image);
 		return image.getID();
-
 	}
+
 	public String addImage(Image image) {
 		repository.insert(image);
 		return "inserted";
 	}
-	
+
 	public Optional<Image> getPhoto(String ID) {
 		return repository.findById(ID);
-		
 	}
 }
