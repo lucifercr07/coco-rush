@@ -1,10 +1,10 @@
-package com.CocoRush.entity;
+package com.cocorush.entity;
 
 import org.bson.types.Binary;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "Images")
+@Document(collection = "images")
 public class Image {
 	@Id
 	private String ID;
