@@ -2,19 +2,13 @@ import React from 'react';
 import { Card, Button, Carousel, Jumbotron, Image } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SideBar from '../../SideBar';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import FacebookIcon from '@material-ui/icons/Facebook';
+import './style.scss';
+import Footer from '../../Footer';
 // import bgImage from '../../../../public/'
 // import './index.css';
 
 class Landing extends React.Component {
   render() {
-
-    var cardStyle = {
-      flex: 2,
-      margin: '30px',
-      borderRadius: '30px'
-    }
 
     const spanClass = {
       display: 'block',
@@ -29,11 +23,11 @@ class Landing extends React.Component {
       fontSize: '4em'
     }
     return (
-      <div style={{ backgroundImage: "url('bg_image.jpg')" }}>
+      <div>
         {/* <SideBar /> */}
         {/* <hr style={{ borderTop: '3px solid #b29a86' }} /> */}
-        <center>
-          <img src='coco rush header.jpg' style={{ margin: 'auto', width: '80%', height: '400px' }} />
+        <center style={{marginTop: '10px'}}>
+          <img src='coco rush header.jpg' className='headerLogo'  />
         </center>
         {/* <center >
 
@@ -51,9 +45,10 @@ class Landing extends React.Component {
         </center> */}
         <p></p>
         <h3></h3>
+        {/*<Card body>
         <center style={{ margin: 'auto', width: '80%', height: '400px' }}>
-          <Card body>
-            <Carousel slide={true}>
+          
+             <Carousel slide={true}>
               <Carousel.Item >
                 <img
                   width={500}
@@ -96,12 +91,12 @@ class Landing extends React.Component {
                 </Carousel.Caption>
               </Carousel.Item>
             </Carousel>
-          </Card>
         </center>
+        </Card> */}
 
-
-        {/* <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
-          <Card className='card' style={cardStyle}>
+        <div className="productCard">
+          <div className='cardStyle'>
+          <Card  >
             <Card.Img variant="top" src="chocolate.jpg" />
             <Card.Body>
               <Card.Title>Card Title</Card.Title>
@@ -109,7 +104,9 @@ class Landing extends React.Component {
               <Button variant="light">Add To Cart</Button>
             </Card.Body>
           </Card>
-          <Card className='card' style={cardStyle}>
+          </div>
+          <div className='cardStyle'>
+          <Card className='card' >
             <Card.Img variant="top" src="chocolate1.jpg" />
             <Card.Body>
               <Card.Title>Card Title</Card.Title>
@@ -117,7 +114,9 @@ class Landing extends React.Component {
               <Button variant="light">Add To Cart</Button>
             </Card.Body>
           </Card>
-          <Card className='card' style={cardStyle}>
+          </div>
+          <div className='cardStyle'>
+          <Card className='card' >
             <Card.Img variant="top" src="chocolate3.jpg" />
             <Card.Body>
               <Card.Title>Card Title</Card.Title>
@@ -125,19 +124,10 @@ class Landing extends React.Component {
               <Button variant="light">Add To Cart</Button>
             </Card.Body>
           </Card>
-          <Card className='card' style={cardStyle}>
-            <Card.Img variant="top" src="chocolate.jpg" />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>Some quick example text to build on the card title and make up the bulk ofthe card's content.</Card.Text>
-              <Button variant="light">Add To Cart</Button>
-            </Card.Body>
-          </Card>
-        </div> */}
-        <span style={{ position: 'relative', float: 'right', marginTop: '1.3em' }}>
-          <InstagramIcon fontSize='large' />
-          <FacebookIcon fontSize='large' />
-        </span>
+          </div>
+        </div>
+        
+        <Footer/>
       </div>
     )
   }
