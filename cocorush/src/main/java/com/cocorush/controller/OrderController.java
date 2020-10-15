@@ -1,15 +1,23 @@
 package com.cocorush.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cocorush.service.OrderService;
@@ -27,7 +35,7 @@ public class OrderController {
 	OrderService orderService;
 
 	@PostMapping("/order")
-	public Order createOrder(@RequestBody Order order) {
+	public Order createOrder(@Valid @RequestBody Order order) {
 		logger.info("Order is: " + order.toString());
 		Order response = orderService.createOrder(order);
 		return response;
@@ -49,7 +57,7 @@ public class OrderController {
 	}
 
 	@PutMapping(value = "/order/{id}")
-	public ResponseEntity<?> updateOrder(@PathVariable String id, @RequestBody Order updatedOrder) {
+	public ResponseEntity<?> updateOrder(@PathVariable String id, @Valid @RequestBody Order updatedOrder) {
 		if (id == null) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
@@ -58,4 +66,16 @@ public class OrderController {
 		Order response = orderService.createOrder(order);
 		return ResponseEntity.ok(response);
 	}
+	
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public Map<String, String> handleValidationExceptions(MethodArgumentNotValidException ex) {
+        Map<String, String> errors = new HashMap<>();
+        ex.getBindingResult().getAllErrors().forEach((error) -> {
+            String fieldName = ((FieldError) error).getField();
+            String errorMessage = error.getDefaultMessage();
+            errors.put(fieldName, errorMessage);
+        });
+        return errors;
+    }
 }
