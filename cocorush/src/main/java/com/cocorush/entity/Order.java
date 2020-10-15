@@ -2,6 +2,11 @@ package com.cocorush.entity;
 
 import java.util.List;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,13 +14,34 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Order {
 	@Id
 	private String id;
+
+	@NotNull
+	@NotBlank(message = "First name is mandatory")
+	@Size(min = 2, max = 30)
 	private String firstName;
+
+	@NotNull
+	@NotBlank(message = "Last name is mandatory")
+	@Size(min = 2, max = 30)
 	private String lastName;
+
 	private Address address;
-	private List<Item> itemList;
+
+	private List<Product> itemList;
+
 	private Long orderTimeStamp;
+
+	@Size(min = 0, max = 120)
 	private String comment;
+
+	@NotNull
+	@NotBlank(message = "Phonenumber is mandatory")
+	@Size(min = 10, max = 10)
 	private String phoneNumber;
+
+	@NotNull
+	@NotBlank(message = "Email address is mandatory")
+	@Email
 	private String emailAddress;
 
 	public String getId() {
@@ -34,17 +60,17 @@ public class Order {
 		this.address = address;
 	}
 
-	public List<Item> getItemList() {
+	public List<Product> getItemList() {
 		return itemList;
 	}
 
-	public void setItemList(List<Item> itemList) {
+	public void setItemList(List<Product> itemList) {
 		this.itemList = itemList;
 	}
 
 	@Override
 	public String toString() {
-		return "Order [ID=" + id + ", name=" + firstName + ", address=" + address + ", orderList=" + itemList + "]";
+		return "Order [name=" + firstName + ", address=" + address + ", orderList=" + itemList + "]";
 	}
 
 	public Long getOrderTimeStamp() {
