@@ -1,0 +1,44 @@
+.headerLogo {
+  // margin: auto; 
+  width: 80%;
+  height: 20em;
+}
+
+@media (max-width:700px){
+  .headerLogo {
+      height: 200px;
+  }
+}
+
+.productCard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; 
+  justify-content: center;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.cardStyle {
+  flex: 6;
+  margin: 30px;
+  border-radius: 30px;
+  width: 30px;
+}
+
+@media (max-width:700px){
+  .cardStyle {
+    flex: 33%;
+    margin: 30px;
+    border-radius: 30px;
+  }
+}
+
+@media (max-width:700px){
+  .productCard {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+  }
+}
+
