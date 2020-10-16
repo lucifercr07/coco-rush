@@ -1,9 +1,9 @@
 import Checkout from './Checkout';
 import Landing from './Landing';
-import SideBar from './SideBar';
+import Products from './Products';
 
 export {
   Checkout,
   Landing,
-  SideBar,
+  Products,
 }
