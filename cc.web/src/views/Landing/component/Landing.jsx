@@ -27,22 +27,8 @@ class Landing extends React.Component {
         {/* <SideBar /> */}
         {/* <hr style={{ borderTop: '3px solid #b29a86' }} /> */}
         <center style={{marginTop: '10px'}}>
-          <img src='coco rush header.jpg' className='headerLogo'  />
+          <img src='cc_banner_small.jpg' className='headerLogo'  />
         </center>
-        {/* <center >
-
-          <span style={spanClass}>
-            Made with Mom's love
-            </span>
-
-          <span>
-            <img style={spanClass}
-              src="header.png"
-            />
-          </span>
-
-          <span style={spanClass}>Your search for tasty home made chocolates ends here....!!!</span>
-        </center> */}
         <p></p>
         <h3></h3>
         {/*<Card body>
