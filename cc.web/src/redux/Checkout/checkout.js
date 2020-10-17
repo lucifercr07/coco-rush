@@ -28,7 +28,7 @@ const initialState = {
     addressLine2: getInitialValue('', '^.*$', true),
     city: getInitialValue('', '^[a-zA-Z\u0080-\u024F]+(?:([\ \-\']|(\.\ ))[a-zA-Z\u0080-\u024F]+)*$'),
     country: getInitialValue('India', '^.*$'),
-    postalCode: getInitialValue('', '^[1-9][0-9]{5}$'),
+    postalCode: getInitialValue('', '^[1-9]{1}[0-9]{2}\s{0,1}[0-9]{3}$'),
     state: getInitialValue('', '^.*$', true),
     landmark: getInitialValue('', '^.*$'),
   }
@@ -191,6 +191,19 @@ const checkoutReducer = (state = initialState, action) => {
           invalidForm: validateAddressForm(state.addressForm)
         }
       };
+
+      case actions.SET_POSTAL_CODE_ERROR:
+        return {
+          ...state,
+          addressForm: {
+            ...state.addressForm,
+            postalCode: {
+              ...state.addressForm.postalCode,
+              error: action.error
+            },
+            invalidForm: validateAddressForm(state.addressForm)
+          }
+        };
     default: {
       return state;
     }
