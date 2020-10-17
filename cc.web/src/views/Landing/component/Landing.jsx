@@ -1,14 +1,29 @@
 import React from 'react';
-import { Card, Button, Carousel, Jumbotron, Image } from 'react-bootstrap'
+import { Button, Jumbotron, Image } from 'react-bootstrap'
+import { Paper, Slide } from '@material-ui/core';
+import Testimonials from '../../Testimonials'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import SideBar from '../../SideBar';
+
+// import SideBar from '../../SideBar';
 import './style.scss';
-import Footer from '../../Footer';
+import { Footer, Card } from '../../../components';
 // import bgImage from '../../../../public/'
 // import './index.css';
 
 class Landing extends React.Component {
   render() {
+
+    const items = [
+      {
+        name: "Arka Naskar",
+        description: "Probably the most random thing you have ever seen!Probably the most random thing you have ever seen!Probably the most random thing you have ever seen!Probably the most random thing you have ever seen!Probably the most random thing you have ever seen!Probably the most random thing you have ever seen!Probably the most random thing you have ever seen!Probably the most random thing you have ever seen!Probably the most random thing you have ever seen!Probably the most random thing you have ever seen!Probably the most random thing you have ever seen!Probably the most random thing you have ever seen!Probably the most random thing you have ever seen!"
+      },
+      {
+        name: "Prashant Shubham",
+        description: "Hello World!"
+      }
+    ]
+
 
     const spanClass = {
       display: 'block',
@@ -25,109 +40,27 @@ class Landing extends React.Component {
     return (
       <div>
         {/* <SideBar /> */}
-        {/* <hr style={{ borderTop: '3px solid #b29a86' }} /> */}
-        <center style={{marginTop: '10px'}}>
-          <img src='coco rush header.jpg' className='headerLogo'  />
+
+        <center style={{ marginTop: '10px' }}>
+          <img src='cc_banner_small.jpg' className='headerLogo' />
         </center>
-        {/* <center >
-
-          <span style={spanClass}>
-            Made with Mom's love
-            </span>
-
-          <span>
-            <img style={spanClass}
-              src="header.png"
-            />
-          </span>
-
-          <span style={spanClass}>Your search for tasty home made chocolates ends here....!!!</span>
-        </center> */}
         <p></p>
         <h3></h3>
-        {/*<Card body>
-        <center style={{ margin: 'auto', width: '80%', height: '400px' }}>
-          
-             <Carousel slide={true}>
-              <Carousel.Item >
-                <img
-                  width={500}
-                  height={400}
-                  className="d-block w-100"
-                  src="chocolate4.jpg"
-                  alt="First slide"
-                />
-                <Carousel.Caption>
-                  <h3>First slide label</h3>
-                  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </Carousel.Caption>
-              </Carousel.Item>
-              <Carousel.Item>
-                <img
-                  width={500}
-                  height={400}
-                  className="d-block w-100"
-                  src="chocolate3.jpg"
-                  alt="Third slide"
-                />
 
-                <Carousel.Caption>
-                  <h3>Second slide label</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </Carousel.Caption>
-              </Carousel.Item>
-              <Carousel.Item>
-                <img
-                  width={500}
-                  height={400}
-                  className="d-block w-100"
-                  src="chocolate1.jpg"
-                  alt="Second slide"
-                />
 
-                <Carousel.Caption>
-                  <h3>Third slide label</h3>
-                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                </Carousel.Caption>
-              </Carousel.Item>
-            </Carousel>
-        </center>
-        </Card> */}
-
+        <h1 className="headers"><u>Featured products</u></h1>
         <div className="productCard">
-          <div className='cardStyle'>
-          <Card  >
-            <Card.Img variant="top" src="chocolate.jpg" />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>Some quick example text to build on the card title and make up the bulk ofthe card's content.</Card.Text>
-              <Button variant="light">Add To Cart</Button>
-            </Card.Body>
-          </Card>
-          </div>
-          <div className='cardStyle'>
-          <Card className='card' >
-            <Card.Img variant="top" src="chocolate1.jpg" />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>Some quick example text to build on the card title and make up the bulk ofthe card's content.</Card.Text>
-              <Button variant="light">Add To Cart</Button>
-            </Card.Body>
-          </Card>
-          </div>
-          <div className='cardStyle'>
-          <Card className='card' >
-            <Card.Img variant="top" src="chocolate3.jpg" />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>Some quick example text to build on the card title and make up the bulk ofthe card's content.</Card.Text>
-              <Button variant="light">Add To Cart</Button>
-            </Card.Body>
-          </Card>
-          </div>
+          <Card title='Some Chocolate Name' />
+          <Card title='hello brotha' />
+          <Card title='hello brotha' />
         </div>
-        
-        <Footer/>
+
+
+        <center style={{ margin: 'auto', width: '80%', height: '400px' }}>
+          <Testimonials items={items} />
+        </center>
+
+        <Footer />
       </div>
     )
   }

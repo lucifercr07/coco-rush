@@ -10,19 +10,12 @@ function getInitialValue(value, regex, invertRule = false) {
   }
 }
 
-function validateAddressForm(addressForm) {
-  console.log(Object.keys(addressForm));
-  return Object.keys(addressForm).some(key => {
-    console.log(addressForm[key]);
-    return addressForm[key].error === true})
-}
-
 // Initial State
 const initialState = {
   addressForm: {
     firstName: getInitialValue('', '^(([A-Za-z ]+[\-\']?)*([A-Za-z]+)?)+$'),
     lastName: getInitialValue('', '^(([A-Za-z ]+[\-\']?)*([A-Za-z]+)?)+$'),
-    phoneNumber: getInitialValue('', '^[1-9][0-9]{9}$'),
+    phoneNumber: getInitialValue('', '^([0]|\\+91)?[6789]\\d{9}$'),
     emailAddress: getInitialValue('', "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"),
     addressLine1: getInitialValue('', '^.*$', true),
     addressLine2: getInitialValue('', '^.*$', true),
@@ -47,8 +40,7 @@ const checkoutReducer = (state = initialState, action) => {
             ...state.addressForm.firstName,
             value: action.data,
             error: !state.addressForm.firstName.regex.test(action.data) || _.isEmpty(_.trim(action.data))
-          },
-          invalidForm: validateAddressForm(state.addressForm)
+          }
         }
       };
 }
@@ -61,8 +53,7 @@ const checkoutReducer = (state = initialState, action) => {
             ...state.addressForm.lastName,
             value: action.data,
             error: !state.addressForm.lastName.regex.test(action.data) || _.isEmpty(_.trim(action.data))
-          },
-          invalidForm: validateAddressForm(state.addressForm)
+          }
         }
       };
 
@@ -75,8 +66,7 @@ const checkoutReducer = (state = initialState, action) => {
             ...state.addressForm.phoneNumber,
             value: action.data,
             error: !state.addressForm.phoneNumber.regex.test(action.data)
-          },
-          invalidForm: validateAddressForm(state.addressForm)
+          }
         }
       };
 
@@ -89,8 +79,7 @@ const checkoutReducer = (state = initialState, action) => {
             ...state.addressForm.emailAddress,
             value: action.data,
             error: !state.addressForm.emailAddress.regex.test(action.data)
-          },
-          invalidForm: validateAddressForm(state.addressForm)
+          }
         }
       };
 
@@ -103,8 +92,7 @@ const checkoutReducer = (state = initialState, action) => {
             ...state.addressForm.addressLine1,
             value: action.data,
             error: !state.addressForm.addressLine1.regex.test(action.data)
-          },
-          invalidForm: validateAddressForm(state.addressForm)
+          }
         }
       };
 
@@ -117,8 +105,7 @@ const checkoutReducer = (state = initialState, action) => {
             ...state.addressForm.addressLine2,
             value: action.data,
             error: !state.addressForm.addressLine2.regex.test(action.data)
-          },
-          invalidForm: validateAddressForm(state.addressForm)
+          }
         }
       };
 
@@ -131,8 +118,7 @@ const checkoutReducer = (state = initialState, action) => {
             ...state.addressForm.city,
             value: action.data,
             error: !state.addressForm.city.regex.test(action.data)
-          },
-          invalidForm: validateAddressForm(state.addressForm)
+          }
         }
       };
 
@@ -145,8 +131,7 @@ const checkoutReducer = (state = initialState, action) => {
             ...state.addressForm.country,
             value: action.data,
             error: !state.addressForm.country.regex.test(action.data)
-          },
-          invalidForm: validateAddressForm(state.addressForm)
+          }
         }
       };
 
@@ -158,9 +143,8 @@ const checkoutReducer = (state = initialState, action) => {
           state: {
             ...state.addressForm.state,
             value: action.data,
-            error: !state.addressForm.state.regex.test(action.data)
-          },
-          invalidForm: validateAddressForm(state.addressForm)
+            error: !state.addressForm.state
+          }
         }
       };
 
@@ -173,8 +157,7 @@ const checkoutReducer = (state = initialState, action) => {
             ...state.addressForm.postalCode,
             value: action.data,
             error: !state.addressForm.postalCode.regex.test(action.data)
-          },
-          invalidForm: validateAddressForm(state.addressForm)
+          }
         }
       };
 
@@ -187,8 +170,7 @@ const checkoutReducer = (state = initialState, action) => {
             ...state.addressForm.landmark,
             value: action.data,
             error: !state.addressForm.landmark.regex.test(action.data)
-          },
-          invalidForm: validateAddressForm(state.addressForm)
+          }
         }
       };
 
@@ -200,8 +182,7 @@ const checkoutReducer = (state = initialState, action) => {
             postalCode: {
               ...state.addressForm.postalCode,
               error: action.error
-            },
-            invalidForm: validateAddressForm(state.addressForm)
+            }
           }
         };
     default: {
