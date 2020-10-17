@@ -4,7 +4,8 @@ import { Route, IndexRoute, Redirect } from 'react-router-dom';
 import {
   Checkout,
   Landing,
-  Products
+  Products,
+  ProductDetails
 } from './views'
 
 export default (
@@ -14,5 +15,6 @@ export default (
     {/* </Route> */}
     <Route path="/checkout" component={Checkout} />
     <Route path="/products" component={Products} />
+    <Route path="/productDetails" component={ProductDetails} />
   </Route>
 )

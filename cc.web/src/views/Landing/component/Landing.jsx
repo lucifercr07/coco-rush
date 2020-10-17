@@ -24,19 +24,6 @@ class Landing extends React.Component {
       }
     ]
 
-
-    const spanClass = {
-      display: 'block',
-      // float:'left',
-      // marginLeft:'25px',
-      position: 'relative',
-      fontFamily: 'tangerine',
-      // minHeight:'35px',
-      // maxWidth:'125px',
-      paddingBottom: '10px',
-      textAlign: 'center',
-      fontSize: '4em'
-    }
     return (
       <div>
         {/* <SideBar /> */}
