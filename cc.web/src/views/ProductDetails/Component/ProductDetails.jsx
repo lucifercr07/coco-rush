@@ -17,7 +17,7 @@ class ProductDetails extends React.Component {
           <img src="chocolate.jpg" alt="" className="img" />
         </center>
         <div className="right-column">
-          <Paper style={{ padding: '20px' }}>
+          <Paper style={{ padding: '20px', backgroundColor: '#F8D9B2' }}>
             <div className="product-description">
               <h1>{productName}</h1>
               <p>The preferred choice of a vast range of chocolate lovers. Creamy nutty and what not!!! The preferred choice of a vast range of chocolate lovers. Creamy nutty and what not!!!The preferred choice of a vast range of chocolate lovers. Creamy nutty and what not!!!</p>

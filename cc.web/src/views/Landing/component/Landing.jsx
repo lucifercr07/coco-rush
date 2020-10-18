@@ -3,7 +3,7 @@ import { Button, Jumbotron, Image } from 'react-bootstrap'
 import { Paper, Slide } from '@material-ui/core';
 import Testimonials from '../../Testimonials'
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import Header from '../../Header';
 // import SideBar from '../../SideBar';
 import './style.scss';
 import { Footer, Card } from '../../../components';
@@ -27,7 +27,7 @@ class Landing extends React.Component {
     return (
       <div>
         {/* <SideBar /> */}
-
+        <Header />
         <center style={{ marginTop: '10px' }}>
           <img src='cc_banner_small.jpg' className='headerLogo' />
         </center>
