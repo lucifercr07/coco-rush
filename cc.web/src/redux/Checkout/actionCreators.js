@@ -58,3 +58,8 @@ export const changeLandmark = data => ({
   type: actions.CHANGE_LANDMARK,
   data,
 });
+
+export const setPostalCodeError = error => ({
+  type: actions.SET_POSTAL_CODE_ERROR,
+  error,
+});
