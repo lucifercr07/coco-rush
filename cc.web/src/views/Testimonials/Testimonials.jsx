@@ -1,0 +1,32 @@
+import React from 'react';
+import Carousel from 'react-material-ui-carousel'
+import { Paper } from '@material-ui/core'
+import './style.scss'
+
+function Item(props) {
+  return (
+    
+    <Paper elevation='10'>
+      <div className="paper">
+      <h1>{props.item.name}</h1>
+      <p>{props.item.description}</p>
+      </div>
+    </Paper>
+
+  )
+}
+
+function Testimonials(props) {
+  const { items } = props;
+  return (
+    <div className='container'>
+    <Carousel>
+      {
+        items.map((item, i) => <Item key={i} item={item} />)
+      }
+    </Carousel>
+    </div>
+  )
+}
+
+export default Testimonials;

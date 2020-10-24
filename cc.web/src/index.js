@@ -12,7 +12,7 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       {routes}
-    </BrowserRouter>,
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 );

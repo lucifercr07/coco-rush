@@ -2,6 +2,35 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
+import { NO_DELIVERY_POSTAL_CODES, ALLOWED_DELIVERY_POSTAL_CODES} from '../../../constants';
+import Dropdown from '../../../components/Dropdown'
+
+function handleBlur({value: postalCodeValue}, setPostalCodeError) {
+  const postalCodeRegex = /^[1-9]{1}[0-9]{2}\s{0,1}[0-9]{3}$/;
+  setPostalCodeError(false);
+
+  if (!postalCodeRegex.test(postalCodeValue)) {
+    setPostalCodeError(true);
+    console.log('Error occurred!!!!! Invalid postal code!!!');
+    return;
+  }
+
+  const startingThreeCharsPinCode = postalCodeValue.slice(0, 3),
+    startingTwoCharsPinCode = postalCodeValue.slice(0, 2);
+
+  if (!ALLOWED_DELIVERY_POSTAL_CODES.hasOwnProperty(startingThreeCharsPinCode)
+      && !ALLOWED_DELIVERY_POSTAL_CODES.hasOwnProperty(startingTwoCharsPinCode)) {
+    setPostalCodeError(true);
+    console.log('Error occurred!!!!! Not valid postal code!!!');
+  }
+  
+  if (startingThreeCharsPinCode in NO_DELIVERY_POSTAL_CODES
+      || startingTwoCharsPinCode in NO_DELIVERY_POSTAL_CODES) {
+    setPostalCodeError(true);
+    console.log('Error occurred!!!!! Not deliverable postal code!!!');
+    return;
+  }
+}
 
 export default function AddressForm(props) {
   const {
@@ -18,6 +47,7 @@ export default function AddressForm(props) {
     changePostalCode,
     changeState,
     changeLandmark,
+    setPostalCodeError
   } = props;
   return (
     <React.Fragment>
@@ -103,12 +133,11 @@ export default function AddressForm(props) {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField
+          <Dropdown
             required
             id="state"
             name="state"
             label="State/Province/Region"
-            fullWidth
             onChange={changeState}
             error={address.state.error}
             value={address.state.value}
@@ -125,7 +154,9 @@ export default function AddressForm(props) {
             error={address.postalCode.error}
             value={address.postalCode.value}
             autoComplete="shipping postal-code"
+            onBlur={() => handleBlur(address.postalCode, setPostalCodeError)}
           />
+          {address.postalCode.error && <span style={{color: "red"}}>Not deliverable</span>}
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
