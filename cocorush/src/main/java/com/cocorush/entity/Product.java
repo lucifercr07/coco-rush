@@ -25,7 +25,7 @@ public class Product {
 	private int inventoryQuantity;
 	private double discount;
 	private String dimension;
-	private Binary image;
+	private List<String> productImageIds;
 	
 	public String getId() {
 		return id;
@@ -83,11 +83,11 @@ public class Product {
 		this.inventoryQuantity = inventoryQuantity;
 	}
 
-	public Binary getImage() {
-		return image;
+	public List<String> getProductImageIds() {
+		return productImageIds;
 	}
 
-	public void setImage(Binary image) {
-		this.image = image;
+	public void setProductImageIds(List<String> productImageIds) {
+		this.productImageIds = productImageIds;
 	}
 }
