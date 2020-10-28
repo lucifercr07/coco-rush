@@ -1,8 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import Paper from '@material-ui/core/Paper';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -13,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import Review from './Review';
+import './style.scss';
 
 function Copyright() {
   return (
@@ -28,9 +27,6 @@ function Copyright() {
 }
 
 const useStyles = makeStyles((theme) => ({
-  appBar: {
-    position: 'relative',
-  },
   layout: {
     width: 'auto',
     marginLeft: theme.spacing(2),
@@ -56,34 +52,105 @@ const useStyles = makeStyles((theme) => ({
   },
   buttons: {
     display: 'flex',
-    justifyContent: 'flex-end',
+    justifyContent: 'flex-end'
   },
   button: {
     marginTop: theme.spacing(3),
     marginLeft: theme.spacing(1),
+    backgroundColor: "#654321",
+    borderRadius: "4px",
+    transition: "all 0.2s",
+    color: "#ffffff",
+
+    "&:hover": {
+      background: "#87592c",
+    },
+    stepIcon: {
+      backgroundColor: "#654321",
+    },
+    root: {
+      width: "90%"
+    },
   },
 }));
 
-const steps = ['Shipping address', 'Payment details', 'Review your order'];
+const steps = ['Shipping address', 'Order Details', 'Payment details'];
 
-function getStepContent(step) {
+/**
+ * Validates if value key in address or customer form is empty
+ * @param {*} addressForm 
+ * @param {*} customerForm 
+ */
+function validateAddressAndCustomerFormNotEmpty(addressForm, customerForm) {
+  let isErrCustomerForm = false, isErrAddressForm = false;
+
+  for (var key in customerForm) {
+    if (customerForm[key].value === '') {
+      isErrCustomerForm = true;
+      customerForm[key].error = true;
+    }
+  }
+
+  for (var key in addressForm) {
+    if (key !== 'landmark' && addressForm[key].value === '') {
+      isErrAddressForm = true;
+      addressForm[key].error = true;
+    }
+  }
+
+  return isErrCustomerForm || isErrAddressForm;
+}
+
+/**
+ * Validates if error key set to true in props passed
+ * @param {*} props 
+ * @returns {Boolean}
+ */
+function validateIfErrorInProps(props) {
+  return Object.keys(props).some(key => {return props[key].error})
+}
+
+function getStepContent(step, props) {
   switch (step) {
     case 0:
-      return <AddressForm />;
+      return <AddressForm  {...props} />;
     case 1:
-      return <PaymentForm />;
+      return <Review {...props} />;
     case 2:
-      return <Review />;
+      return <PaymentForm {...props} />;
     default:
       throw new Error('Unknown step');
   }
 }
 
-export default function Checkout() {
+function shouldDisableButton(props, activeStep) {
+  console.log(validateIfErrorInProps(props.customer));
+  console.log(validateIfErrorInProps(props.address));
+  console.log(validateAddressAndCustomerFormNotEmpty(props.address, props.customer));
+  switch (activeStep) {
+    case 0:
+      return validateIfErrorInProps(props.customer)
+        || validateIfErrorInProps(props.address) 
+        || validateAddressAndCustomerFormNotEmpty(props.address, props.customer);
+    case 1:
+      return false;
+    case 2:
+      return false;
+    default:
+      throw new Error('Unknown step');
+  }
+}
+
+export default function Checkout(props) {
+  let isNextButtonDisabled = false;
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
 
-  const handleNext = () => {
+  const handleNext = (props) => {
+    if (shouldDisableButton(props, activeStep)) {
+      isNextButtonDisabled = true;
+      return;
+    };
     setActiveStep(activeStep + 1);
   };
 
@@ -94,22 +161,18 @@ export default function Checkout() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <AppBar position="absolute" color="default" className={classes.appBar}>
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            The CoCo Rush
-          </Typography>
-        </Toolbar>
-      </AppBar>
       <main className={classes.layout}>
         <Paper className={classes.paper}>
-          <Typography component="h1" variant="h4" align="center">
+          <h5 className="header__text" align="center">
             Checkout
-          </Typography>
+          </h5>
           <Stepper activeStep={activeStep} className={classes.stepper}>
             {steps.map((label) => (
               <Step key={label}>
-                <StepLabel>{label}</StepLabel>
+                <StepLabel StepIconProps={{
+                    classes: { root: classes.stepIcon }
+                  }}>{label}
+                </StepLabel>
               </Step>
             ))}
           </Stepper>
@@ -125,28 +188,28 @@ export default function Checkout() {
                 </Typography>
               </React.Fragment>
             ) : (
-              <React.Fragment>
-                {getStepContent(activeStep)}
-                <div className={classes.buttons}>
-                  {activeStep !== 0 && (
-                    <Button onClick={handleBack} className={classes.button}>
-                      Back
+                <React.Fragment>
+                  {getStepContent(activeStep, props)}
+                  <div className={classes.buttons}>
+                    {activeStep !== 0 && (
+                      <Button onClick={handleBack} className={classes.button}>
+                        Back
+                      </Button>
+                    )}
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={() => handleNext(props)}
+                      className={classes.button}
+                      disabled={isNextButtonDisabled}
+                    >
+                      {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
                     </Button>
-                  )}
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={handleNext}
-                    className={classes.button}
-                  >
-                    {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
-                  </Button>
-                </div>
-              </React.Fragment>
-            )}
+                  </div>
+                </React.Fragment>
+              )}
           </React.Fragment>
         </Paper>
-        <Copyright />
       </main>
     </React.Fragment>
   );
