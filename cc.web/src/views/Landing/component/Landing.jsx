@@ -3,10 +3,9 @@ import { Button, Jumbotron, Image } from 'react-bootstrap'
 import { Paper, Slide } from '@material-ui/core';
 import Testimonials from '../../Testimonials'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from '../../Header';
 // import SideBar from '../../SideBar';
 import './style.scss';
-import { Footer, Card } from '../../../components';
+import { Card } from '../../../components';
 // import bgImage from '../../../../public/'
 // import './index.css';
 
@@ -23,11 +22,8 @@ class Landing extends React.Component {
         description: "Hello World!"
       }
     ]
-
     return (
       <div>
-        {/* <SideBar /> */}
-        <Header />
         <center style={{ marginTop: '10px' }}>
           <img src='cc_banner_small.jpg' className='headerLogo' />
         </center>
@@ -46,8 +42,6 @@ class Landing extends React.Component {
         <center style={{ margin: 'auto', width: '80%', height: '400px' }}>
           <Testimonials items={items} />
         </center>
-
-        <Footer />
       </div>
     )
   }
