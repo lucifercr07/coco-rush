@@ -38,6 +38,10 @@ public class OrderController {
 	public Order createOrder(@Valid @RequestBody Order order) {
 		logger.info("Order is: " + order.toString());
 		Order response = orderService.createOrder(order);
+		// If order created successfully send email to both admin and user
+		if (response != null) {
+			
+		}
 		return response;
 	}
 

@@ -8,15 +8,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class EmailService {
-
 	@Autowired
 	private JavaMailSender javaMailSender;
 
 	public String sendCustomerEmail(String name, String email, String orderId) {
 		SimpleMailMessage msg =new SimpleMailMessage();
 		msg.setTo(email);
-		msg.setSubject("Cococrush order details");
-		String text = String.format("Hi %s \n your order with id : %s has been received \n Regards, \n Entrega",name,orderId);
+		msg.setSubject("Cococrush Order Details");
+		String text = String.format("Hi %s \n your order with id : %s has been received \n Regards, \n Entrega", name, orderId);
 		msg.setText(text);
 		javaMailSender.send(msg);
 		return "Sent";

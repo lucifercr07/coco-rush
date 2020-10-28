@@ -14,11 +14,19 @@ public class OrderService {
 	private static final String ORDER_DATABASE_NAME = "orders";
 
 	@Autowired
+	EmailService emailService;
+	
+	@Autowired
 	OrderRepository orderRepository;
 
 	public Order createOrder(Order order) {
 		order.setOrderTimeStamp(System.currentTimeMillis());
 		orderRepository.save(order);
+		String orderId = order.getId();
+		String email = order.getEmailAddress();
+		String name = order.getFirstName();
+		String customerEmailResponse = emailService.sendCustomerEmail(name,email, orderId);
+		String adminEmailResponse = emailService.sendAdminEmail(orderId);
 		return order;
 	}
 

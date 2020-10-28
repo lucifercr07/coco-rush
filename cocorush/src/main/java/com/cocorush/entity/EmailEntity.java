@@ -132,6 +132,7 @@ public class EmailEntity {
 	public void setEmailedMessage(String emailedMessage) {
 		this.emailedMessage = emailedMessage;
 	}
+
 	@Override
 	public String toString() {
 		return "Email [from=" + from + ", to=" + Arrays.toString(to) + ", cc=" + cc + ", bcc=" + bcc + ", subject="
@@ -141,7 +142,4 @@ public class EmailEntity {
 				+ ", parameterMap=" + parameterMap + ", staticResourceMap=" + staticResourceMap + ", emailedMessage="
 				+ emailedMessage + "]";
 	}
-	
-	
-	
 }

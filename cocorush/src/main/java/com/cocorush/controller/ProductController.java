@@ -43,10 +43,10 @@ public class ProductController {
 	}
 
 	@GetMapping("/product")
-	public @ResponseBody List<Product> getProducts(@RequestParam("category") List<String> queryParameters) {
-		if (queryParameters.size() != 0) {
-			logger.info("Category query params received: " + queryParameters.toString());
-			return productService.findProductByCategoryName(queryParameters);
+	public @ResponseBody List<Product> getProducts(@RequestParam(required = false) List<String> category) {
+		if (category != null && category.size() != 0) {
+			logger.info("Category query params received: " + category.toString());
+			return productService.findProductByCategoryName(category);
 		}
 
 		return productService.getProducts();
