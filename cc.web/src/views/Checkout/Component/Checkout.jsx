@@ -12,6 +12,7 @@ import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import Review from './Review';
 import './style.scss';
+import { Layout } from '../../../components'
 
 function Copyright() {
   return (
@@ -107,7 +108,7 @@ function validateAddressAndCustomerFormNotEmpty(addressForm, customerForm) {
  * @returns {Boolean}
  */
 function validateIfErrorInProps(props) {
-  return Object.keys(props).some(key => {return props[key].error})
+  return Object.keys(props).some(key => { return props[key].error })
 }
 
 function getStepContent(step, props) {
@@ -130,7 +131,7 @@ function shouldDisableButton(props, activeStep) {
   switch (activeStep) {
     case 0:
       return validateIfErrorInProps(props.customer)
-        || validateIfErrorInProps(props.address) 
+        || validateIfErrorInProps(props.address)
         || validateAddressAndCustomerFormNotEmpty(props.address, props.customer);
     case 1:
       return false;
@@ -161,56 +162,55 @@ export default function Checkout(props) {
   return (
     <React.Fragment>
       <CssBaseline />
-      <main className={classes.layout}>
-        <Paper className={classes.paper}>
-          <h5 className="header__text" align="center">
-            Checkout
-          </h5>
-          <Stepper activeStep={activeStep} className={classes.stepper}>
-            {steps.map((label) => (
-              <Step key={label}>
-                <StepLabel StepIconProps={{
-                    classes: { root: classes.stepIcon }
-                  }}>{label}
-                </StepLabel>
-              </Step>
-            ))}
-          </Stepper>
-          <React.Fragment>
-            {activeStep === steps.length ? (
-              <React.Fragment>
-                <Typography variant="h5" gutterBottom>
-                  Thank you for your order.
-                </Typography>
-                <Typography variant="subtitle1">
-                  Your order number is #2001539. We have emailed your order confirmation, and will
-                  send you an update when your order has shipped.
-                </Typography>
-              </React.Fragment>
-            ) : (
+      <Layout {...props}>
+        <main className={classes.layout}>
+          <Paper className={classes.paper}>
+            <Typography component="h1" variant="h4" align="center">
+              Checkout
+          </Typography>
+            <Stepper activeStep={activeStep} className={classes.stepper}>
+              {steps.map((label) => (
+                <Step key={label}>
+                  <StepLabel>{label}</StepLabel>
+                </Step>
+              ))}
+            </Stepper>
+            <React.Fragment>
+              {activeStep === steps.length ? (
                 <React.Fragment>
-                  {getStepContent(activeStep, props)}
-                  <div className={classes.buttons}>
-                    {activeStep !== 0 && (
-                      <Button onClick={handleBack} className={classes.button}>
-                        Back
-                      </Button>
-                    )}
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      onClick={() => handleNext(props)}
-                      className={classes.button}
-                      disabled={isNextButtonDisabled}
-                    >
-                      {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
-                    </Button>
-                  </div>
+                  <Typography variant="h5" gutterBottom>
+                    Thank you for your order.
+                </Typography>
+                  <Typography variant="subtitle1">
+                    Your order number is #2001539. We have emailed your order confirmation, and will
+                    send you an update when your order has shipped.
+                </Typography>
                 </React.Fragment>
-              )}
-          </React.Fragment>
-        </Paper>
-      </main>
-    </React.Fragment>
+              ) : (
+                  <React.Fragment>
+                    {getStepContent(activeStep, props)}
+                    <div className={classes.buttons}>
+                      {activeStep !== 0 && (
+                        <Button onClick={handleBack} className={classes.button}>
+                          Back
+                        </Button>
+                      )}
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={handleNext}
+                        className={classes.button}
+                        disabled={props.invalidForm}
+                      >
+                        {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                      </Button>
+                    </div>
+                  </React.Fragment>
+                )}
+            </React.Fragment>
+          </Paper>
+        </main>
+      </Layout >
+    </React.Fragment >
   );
 }

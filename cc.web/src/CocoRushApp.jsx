@@ -1,17 +1,14 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import {createBrowserHistory} from 'history';
 import routes from './routes';
-import Header from './views/Header';
-import { Footer } from './components';
 
 function CocoRushApp() {
   return (
     <React.Fragment>
-      <Header />
-      <BrowserRouter>
+      <BrowserRouter history={createBrowserHistory()}>
         {routes}
       </BrowserRouter>
-      <Footer />
     </React.Fragment>
   );
 }

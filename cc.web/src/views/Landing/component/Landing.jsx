@@ -4,13 +4,13 @@ import { Paper, Slide } from '@material-ui/core';
 import Testimonials from '../../Testimonials'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.scss';
-import { Footer, Card } from '../../../components';
-// import SideBar from '../../SideBar';
+import { Card, Layout } from '../../../components';
 import './style.scss';
-// import bgImage from '../../../../public/'
-// import './index.css';
 
 class Landing extends React.Component {
+  componentDidMount() {
+
+  }
   render() {
 
     const items = [
@@ -38,25 +38,28 @@ class Landing extends React.Component {
       fontSize: '4em'
     }
     return (
-      <div>
-        <center style={{ marginTop: '10px' }}>
-          <img src='cc_banner_small.jpg' className='headerLogo' />
-        </center>
-        <p></p>
-        <h3></h3>
+      <Layout {...this.props}>
+        <div>
+          <center style={{ marginTop: '10px' }}>
+            <img src='cc_banner_small.jpg' className='headerLogo' />
+          </center>
+          <p></p>
+          <h3></h3>
 
 
-        <h1 className="headers"><u>Featured products</u></h1>
-        <div className="productCard">
-          <Card title='Some Chocolate Name' />
-          <Card title='hello brotha' />
-          <Card title='hello brotha' />
+          <h1 className="headers"><u>Featured products</u></h1>
+          <div className="productCard">
+            <Card title='Some Chocolate Name' />
+            <Card title='hello brotha' />
+            <Card title='hello brotha' />
+          </div>
+
+
+          <center style={{ margin: 'auto', width: '80%', height: '400px' }}>
+            <Testimonials items={items} />
+          </center>
         </div>
-
-        <center style={{ margin: 'auto', width: '80%', height: '400px' }}>
-          <Testimonials items={items} />
-        </center>
-      </div>
+      </Layout>
     )
   }
 }

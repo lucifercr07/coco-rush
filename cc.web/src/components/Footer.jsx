@@ -44,8 +44,9 @@ const useStyles = makeStyles((theme) => ({
     },
     float: 'left',
   },
-  aboutUsLink: {
+  footerLinks: {
     color: '#000000',
+    padding: '3px',
     '&:hover': {
       color: '#4d4d4d',
     },
@@ -53,7 +54,8 @@ const useStyles = makeStyles((theme) => ({
   licenseImage: {
     maxHeight: '50px',
     maxWidth: '60px',
-    float: 'right'
+    float: 'right',
+    marginRight: '50px'
   }
 }));
 
@@ -71,10 +73,18 @@ export default function StickyFooter() {
           className={classes.socialMediaIcon} />
         <a
           href={window.location.origin + "/aboutUs"}
-          className={classes.aboutUsLink}
+          className={classes.footerLinks}
         >
           About Us
         </a>
+        |
+        <a
+          href={window.location.origin + "/aboutUs"}
+          className={classes.footerLinks}
+        >
+          Terms of Use
+        </a>
+        
         <img alt='FSSAI License' className={classes.licenseImage} src="license.jpg" />
       </footer>
     </div>

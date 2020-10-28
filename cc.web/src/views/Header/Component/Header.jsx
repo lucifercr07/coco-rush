@@ -12,6 +12,7 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Zoom from '@material-ui/core/Zoom';
 import HomeIcon from '@material-ui/icons/Home';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import Badge from '@material-ui/core/Badge';
 import './style.scss'
 
 const useStyles = makeStyles((theme) => ({
@@ -60,18 +61,25 @@ ScrollTop.propTypes = {
   window: PropTypes.func,
 };
 
+ 
 export default function BackToTop(props) {
+  console.log('in header')
+    console.log(props)
+  const navigateToProducts = () => props.history.push('/products');
+  const goHome = () => props.history.push('/');
   return (
     <React.Fragment>
       <CssBaseline />
       <AppBar style={{ backgroundColor: 'white' }}>
 
         <Toolbar>
-          <HomeIcon fontSize='large' className="brown" />
-          <button class="tablink brown" >Shop Now</button>
+          <HomeIcon fontSize='large' className="brown" onClick={goHome} />
+          <button class="tablink brown" onClick={navigateToProducts} >Shop Now</button>
           <img src="header.png" style={{ width: '15%', maxWidth: '150px', minWidth: '150px' }} />
           <button class="tablink brown" >Blog</button>
-          <ShoppingCartIcon fontSize='large' className="brown" />
+          <Badge badgeContent={4} color="secondary">
+            <ShoppingCartIcon fontSize='large' className="brown" />
+          </Badge>
         </Toolbar>
       </AppBar>
       <Toolbar id="back-to-top-anchor" />

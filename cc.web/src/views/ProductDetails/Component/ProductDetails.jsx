@@ -2,6 +2,7 @@ import React from 'react';
 import { Paper } from '@material-ui/core';
 import { INR_SYMBOL } from '../../../constants'
 import './style.scss';
+import {Layout} from '../../../components'
 
 class ProductDetails extends React.Component {
   render() {
@@ -12,6 +13,7 @@ class ProductDetails extends React.Component {
       productName = 'Chocolate'
     }
     return (
+      <Layout {...this.props}>
       <div className="container">
         <center className="left-column">
           <img src="chocolate.jpg" alt="" className="img" />
@@ -35,6 +37,7 @@ class ProductDetails extends React.Component {
           </Paper>
         </div>
       </div>
+      </Layout>
     )
   }
 } export default ProductDetails;

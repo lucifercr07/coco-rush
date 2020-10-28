@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { get } from 'lodash'
-import Checkout from '../Component/Checkout';
+import Landing from '../Component/Landing';
 import { actionCreators } from '../../../redux/Checkout';
 
 const mapStateToProps = ({ checkout }) => {
@@ -38,11 +38,10 @@ const mapDispatchToProps = (dispatch) => {
     changePostalCode: ({ target }) => dispatch(actionCreators.changePostalCode(target.value)),
     changeState: ({ target }) => dispatch(actionCreators.changeState(target.value)),
     changeLandmark: ({ target }) => dispatch(actionCreators.changeLandmark(target.value)),
-    setPostalCodeError: error => dispatch(actionCreators.setPostalCodeError(error)),
   };
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Checkout);
+)(Landing);
