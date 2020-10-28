@@ -19,13 +19,11 @@ function Item(props) {
 function Testimonials(props) {
   const { items } = props;
   return (
-    <div className='container'>
     <Carousel>
       {
         items.map((item, i) => <Item key={i} item={item} />)
       }
     </Carousel>
-    </div>
   )
 }
 

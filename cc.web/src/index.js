@@ -2,17 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { Provider } from "react-redux";
-import { createStore } from 'redux';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter } from 'react-router-dom';
-import routes from './routes';
 import store from './store';
+import CocoRushApp from './CocoRushApp'
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
-      {routes}
-    </BrowserRouter>
+    <CocoRushApp />
   </Provider>,
   document.getElementById('root')
 );

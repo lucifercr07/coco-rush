@@ -10,7 +10,7 @@ const items = ['one product', 'two product', 'three product', 'four product', 'f
 class Products extends React.Component {
   componentDidMount() {
   }
-  resize
+
   render() {
     return (
       <Container maxWidth="lg">
