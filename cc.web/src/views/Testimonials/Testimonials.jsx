@@ -8,11 +8,11 @@ function Item(props) {
     
     <Paper elevation='10'>
       <div className="paper">
-      <h2 >{props.item.name}</h2>
+      <h1>{props.item.name}</h1>
       <p>{props.item.description}</p>
       </div>
     </Paper>
-    
+
   )
 }
 

@@ -1,9 +1,18 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
+const font = "'Lato', sans-serif"; 
+
+const muiTheme = getMuiTheme({
+  fontFamily: font
+});
 
 function App() {
   return (
+    <MuiThemeProvider muiTheme={muiTheme}>
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -20,6 +29,7 @@ function App() {
         </a>
       </header>
     </div>
+    </MuiThemeProvider>
   );
 }
 

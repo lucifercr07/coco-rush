@@ -5,7 +5,8 @@ import {
   Checkout,
   Landing,
   Products,
-  ProductDetails
+  AboutUs,
+  ProductDetails,
 } from './views'
 
 export default (
@@ -15,6 +16,7 @@ export default (
     {/* </Route> */}
     <Route path="/checkout" component={Checkout} />
     <Route path="/products" component={Products} />
+    <Route path="/aboutUs" component={AboutUs} />
     <Route path="/productDetails" component={ProductDetails} />
   </Route>
 )

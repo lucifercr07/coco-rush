@@ -9,13 +9,9 @@ const items = ['one product', 'two product', 'three product', 'four product', 'f
 
 class Products extends React.Component {
   componentDidMount() {
-    // window.onresize = 
   }
-  resize
+
   render() {
-
-    // console.log(window.onresize)
-
     return (
       <Container maxWidth="lg">
         <div className="header__text">

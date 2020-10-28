@@ -38,6 +38,7 @@ const mapDispatchToProps = (dispatch) => {
     changePostalCode: ({ target }) => dispatch(actionCreators.changePostalCode(target.value)),
     changeState: ({ target }) => dispatch(actionCreators.changeState(target.value)),
     changeLandmark: ({ target }) => dispatch(actionCreators.changeLandmark(target.value)),
+    setPostalCodeError: error => dispatch(actionCreators.setPostalCodeError(error)),
   };
 }
 // Exports

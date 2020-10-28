@@ -9,3 +9,4 @@ export const CHANGE_STATE = 'CC/addressForm/CHANGE_STATE';
 export const CHANGE_COUNTRY = 'CC/addressForm/CHANGE_COUNTRY';
 export const CHANGE_EMAIL_ADDRESS = 'CC/addressForm/CHANGE_EMAIL_ADDRESS';
 export const CHANGE_PHONE_NUMBER = 'CC/addressForm/CHANGE_PHONE_NUMBER';
+export const SET_POSTAL_CODE_ERROR = 'CC/addressForm/SET_POSTAL_CODE_ERROR';
