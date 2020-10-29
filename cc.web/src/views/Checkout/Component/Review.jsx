@@ -5,20 +5,14 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
+import './style.scss'
+import { INDIA_DELIVERY_COST_LIST } from '../../../../src/constants';
 
 const products = [
   { name: 'Product 1', desc: 'A nice thing', price: '$9.99', quantity: 2 },
   { name: 'Product 2', desc: 'Another thing', price: '$3.45', quantity: 5 },
   { name: 'Product 3', desc: 'Something else', price: '$6.51', quantity: 1 },
   { name: 'Product 4', desc: 'Best thing of all', price: '$14.11', quantity: 3 },
-  { name: 'Shipping', desc: '', price: 'Free' },
-];
-const addresses = ['1 Material-UI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
-const payments = [
-  { name: 'Card type', detail: 'Visa' },
-  { name: 'Card holder', detail: 'Mr John Smith' },
-  { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
-  { name: 'Expiry date', detail: '04/2024' },
 ];
 
 const useStyles = makeStyles((theme) => ({
@@ -33,22 +27,34 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Review() {
+export default function Review(props) {
   const classes = useStyles();
+
+  const {
+    customer,
+    address
+  } = props;
 
   return (
     <React.Fragment>
-      <Typography variant="h6" gutterBottom>
-        Order summary
-      </Typography>
+      <div className="shipping__text"
+        style={{fontWeight: 'bold', fontSize: '20px', marginBottom: '4px'}}>
+        Order Summary
+      </div>
       <List disablePadding>
         {products.map((product) => (
           <ListItem className={classes.listItem} key={product.name}>
             <ListItemText primary={product.name} secondary={product.desc} />
             <Typography variant="body2">{product.price}</Typography>&nbsp;
-            <Typography variant="body2">x {product.quantity}</Typography>
+            <Typography variant="body2"> x {product.quantity}</Typography>
           </ListItem>
         ))}
+        <ListItem className={classes.listItem}>
+          <ListItemText primary="Shipping Charges" />
+          <Typography variant="body2" className={classes.listItem}>
+            {INDIA_DELIVERY_COST_LIST[address.state.value]}
+          </Typography>
+        </ListItem>
         <ListItem className={classes.listItem}>
           <ListItemText primary="Total" />
           <Typography variant="subtitle1" className={classes.total}>
@@ -58,24 +64,25 @@ export default function Review() {
       </List>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
-          <Typography variant="h6" gutterBottom className={classes.title}>
-            Shipping
-          </Typography>
-          <Typography gutterBottom>John Smith</Typography>
-          <Typography gutterBottom>{addresses.join(', ')}</Typography>
-        </Grid>
-        <Grid item container direction="column" xs={12} sm={6}>
-          <Typography variant="h6" gutterBottom className={classes.title}>
-            Payment details
-          </Typography>
-          <Grid container>
-            <Grid item xs={6}>
-              <Typography gutterBottom>UPI ID</Typography>
-            </Grid>
-            <Grid item xs={6}>
-              <Typography gutterBottom style={{display: 'inline-block'}}>customer@upi</Typography>
-            </Grid>
-          </Grid>
+          <div className="shipping__text"
+            style={{fontWeight: 'bold', fontSize: '20px', marginBottom: '4px'}}>
+            Shipping Details
+          </div>
+          <div className="shipping__text">
+            {customer.firstName.value + " " + customer.lastName.value}
+            <br/>
+            {customer.phoneNumber.value}
+            <br/>
+            {customer.emailAddress.value}
+          </div>
+          <p></p>
+          <div className="shipping__text">
+            {address.addressLine1.value + " " + address.addressLine2.value}
+            <br/>
+            {address.city.value + ", " + address.state.value}
+            <br/>
+            {address.country.value + ", " + address.postalCode.value}
+          </div>
         </Grid>
       </Grid>
     </React.Fragment>

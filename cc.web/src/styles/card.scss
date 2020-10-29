@@ -1,0 +1,18 @@
+.cardStyle {
+  flex: 1;
+  margin: 30px;
+  
+  cursor: pointer;
+  min-width: 200px;
+  max-width: 300px;
+}
+  
+@media (max-width:700px) {
+  .cardStyle {
+    // flex: 33%;
+    margin: 30px;
+    border-radius: 30px;
+    width: 100%;
+  }
+}
+  

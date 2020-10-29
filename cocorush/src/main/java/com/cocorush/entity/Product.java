@@ -5,7 +5,6 @@ import java.util.List;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import org.bson.types.Binary;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -26,6 +25,7 @@ public class Product {
 	private double discount;
 	private String dimension;
 	private List<String> productImageIds;
+	private boolean featured;
 	
 	public String getId() {
 		return id;
@@ -89,5 +89,18 @@ public class Product {
 
 	public void setProductImageIds(List<String> productImageIds) {
 		this.productImageIds = productImageIds;
+	}
+
+	public boolean getFeatured() {
+		return featured;
+	}
+
+	public void setFeatured(boolean featured) {
+		this.featured = featured;
+	}
+	
+	@Override
+	public String toString() {
+		return "Product [name=" + name + ", isFeatured=" + featured + ", unitPrice=" + unitPrice + "]";
 	}
 }

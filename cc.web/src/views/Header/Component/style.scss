@@ -1,0 +1,19 @@
+.tablink {
+  background-color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 20px;
+  width: 20%;
+}
+
+.brown {
+  color: #654321;
+}
+
+/* Change background color of buttons on hover */
+.tablink:hover {
+  background-color: whitesmoke;
+}
