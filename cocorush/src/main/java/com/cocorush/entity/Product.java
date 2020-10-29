@@ -25,6 +25,7 @@ public class Product {
 	private double discount;
 	private String dimension;
 	private List<String> productImageIds;
+	private boolean featured;
 	
 	public String getId() {
 		return id;
@@ -88,5 +89,18 @@ public class Product {
 
 	public void setProductImageIds(List<String> productImageIds) {
 		this.productImageIds = productImageIds;
+	}
+
+	public boolean getFeatured() {
+		return featured;
+	}
+
+	public void setFeatured(boolean featured) {
+		this.featured = featured;
+	}
+	
+	@Override
+	public String toString() {
+		return "Product [name=" + name + ", isFeatured=" + featured + ", unitPrice=" + unitPrice + "]";
 	}
 }

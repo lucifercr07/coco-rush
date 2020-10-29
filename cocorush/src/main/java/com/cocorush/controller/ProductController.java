@@ -43,13 +43,23 @@ public class ProductController {
 	}
 
 	@GetMapping("/product")
-	public @ResponseBody List<Product> getProducts(@RequestParam(required = false) List<String> category) {
+	public @ResponseBody List<Product> getProducts(@RequestParam(required = false) List<String> category,
+			@RequestParam(required = false) Boolean featured) {
 		if (category != null && category.size() != 0) {
 			logger.info("Category query params received: " + category.toString());
 			return productService.findProductByCategoryName(category);
 		}
 
-		return productService.getProducts();
+		if (featured == null) {
+			logger.info("No features mentioned, getting all products.");
+			return productService.getProducts();
+		}
+
+		if (featured) {
+			return productService.findFeaturedProducts(true);
+		}
+
+		return productService.findFeaturedProducts(false);
 	}
 
 	@GetMapping(value = "/product/{id}")

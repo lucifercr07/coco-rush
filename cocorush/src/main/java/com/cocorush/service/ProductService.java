@@ -21,6 +21,7 @@ public class ProductService {
 	ProductRepository productRepository;
 
 	public Product createProduct(Product product) {
+		logger.info("Product value: " + product.toString());
 		productRepository.save(product);
 		return product;
 	}
@@ -44,5 +45,9 @@ public class ProductService {
 	public List<Product> findProductByCategoryName(List<String> categoryName) {
 		logger.info("categoryName: " + categoryName);
 		return productRepository.findByCategoryNameContaining(categoryName);
+	}
+	
+	public List<Product> findFeaturedProducts(Boolean isFeatured) {
+		return productRepository.findFeaturedProducts(isFeatured);
 	}
 }
