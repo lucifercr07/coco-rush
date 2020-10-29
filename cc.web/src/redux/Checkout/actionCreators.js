@@ -1,8 +1,6 @@
 import * as actions from './actions';
 
 export const changeFirstName = data => {
-  console.log('from creator')
-  console.log(data)
   return {
     type: actions.CHANGE_FIRST_NAME,
     data,
