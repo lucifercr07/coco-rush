@@ -1,5 +1,7 @@
 import React from 'react';
-import { Button, Jumbotron, Image } from 'react-bootstrap';
+import { Jumbotron, Image } from 'react-bootstrap';
+import Button from '@material-ui/core/Button';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { Paper, Slide } from '@material-ui/core';
 import Testimonials from '../../Testimonials'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -37,6 +39,7 @@ class Landing extends React.Component {
       textAlign: 'center',
       fontSize: '4em'
     }
+    const navigateToProducts = () => this.props.history.push('/products');
     return (
       <Layout {...this.props}>
         <div>
@@ -55,9 +58,22 @@ class Landing extends React.Component {
           </div>
 
 
-          <center style={{ margin: 'auto', width: '80%', height: '400px' }}>
+          <center style={{ margin: 'auto', width: '80%', marginBottom: '50px' }}>
             <Testimonials items={items} />
           </center>
+
+          <center style={{ margin: 'auto', width: '80%', marginBottom: '50px' }}>
+            <Paper elevation={3} className="shopCard">
+              <h1>
+                Shop more products &nbsp;
+                <span onClick={navigateToProducts} className="shopPointer">
+                  here &nbsp;
+                  <ArrowForwardIcon />
+                </span>
+              </h1>
+            </Paper>
+          </center>
+
         </div>
       </Layout>
     )
