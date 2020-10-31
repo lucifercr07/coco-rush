@@ -1,83 +1,164 @@
 import React from 'react';
 import { Container } from '@material-ui/core';
-import { Card } from '../../../components'
-import Carousel from 'react-material-ui-carousel'
-import { Layout } from '../../../components'
+import { Layout } from '../../../components';
+import { capitalize } from 'lodash';
+import ProductCarousel from './ProductCarousel';
 import './style.scss';
 
-const items = ['one product', 'two product', 'three product', 'four product', 'five product']
+const categories = ['nutties', 'truffles', 'bars', 'special', 'baskets'];
+const products = [
+  {
+    name: "one product",
+    price: 123,
+    description: "The product description goes here",
+    category: "nutties"
+  },
+  {
+    name: "two product",
+    price: 456,
+    description: "The product description goes here",
+    category: "nutties"
+  },
+  {
+    name: "three product",
+    price: 213,
+    description: "The product description goes here",
+    category: "nutties"
+  },
+  {
+    name: "four product",
+    price: 767,
+    description: "The product description goes here",
+    category: "nutties"
+  },
+  {
+    name: "five product",
+    price: 321,
+    description: "The product description goes here",
+    category: "nutties"
+  },
+  {
+    name: "one product",
+    price: 123,
+    description: "The product description goes here",
+    category: "truffles"
+  },
+  {
+    name: "two product",
+    price: 456,
+    description: "The product description goes here",
+    category: "truffles"
+  },
+  {
+    name: "three product",
+    price: 213,
+    description: "The product description goes here",
+    category: "truffles"
+  },
+  {
+    name: "four product",
+    price: 767,
+    description: "The product description goes here",
+    category: "truffles"
+  },
+  {
+    name: "one product",
+    price: 123,
+    description: "The product description goes here",
+    category: "bars"
+  },
+  {
+    name: "two product",
+    price: 456,
+    description: "The product description goes here",
+    category: "bars"
+  },
+  {
+    name: "three product",
+    price: 213,
+    description: "The product description goes here",
+    category: "bars"
+  },
+  {
+    name: "four product",
+    price: 767,
+    description: "The product description goes here",
+    category: "bars"
+  },
+  {
+    name: "five product",
+    price: 321,
+    description: "The product description goes here",
+    category: "bars"
+  },
+  {
+    name: "six product",
+    price: 321,
+    description: "The product description goes here",
+    category: "bars"
+  },
+  {
+    name: "seven product",
+    price: 321,
+    description: "The product description goes here",
+    category: "bars"
+  },
+  {
+    name: "one product",
+    price: 123,
+    description: "The product description goes here",
+    category: "special"
+  },
+  {
+    name: "two product",
+    price: 456,
+    description: "The product description goes here",
+    category: "special"
+  },
+  {
+    name: "one product",
+    price: 123,
+    description: "The product description goes here",
+    category: "baskets"
+  }
+];
 
 class Products extends React.Component {
-  componentDidMount() {
-  }
+  state = {
+    pageSize: window.innerWidth > 991 ? 3 : 1
+  };
 
   render() {
+    const { pageSize } = this.state;
     return (
       <Layout {...this.props}>
         <Container maxWidth="lg">
-          <div className="header__text">
-            <b>Nutties</b>
-            <hr />
-            <Carousel autoPlay={false}>
-              <div className="productCard">
-                <Card title="one Product" />
-                <Card title="two Product" />
-                <Card title="three Product" />
-              </div>
-              <div className="productCard">
-                <Card title="four Product" />
-                <Card title="five Product" />
-              </div>
-            </Carousel>
+          {categories.map(category =>
+            <div className="header__text">
+              <b>{capitalize(category)}</b>
+              <hr />
+              <ProductCarousel
+                products={products.filter(product => product.category === category)}
+                pageSize={pageSize} />
+            </div>
+          )}
 
-          </div>
-          <div className="header__text">
-            <b>Truffles</b>
-            <hr />
-            <div className="productCard">
-              <Card title="one Product" />
-              <Card title="two Product" />
-              <Card title="three Product" />
-              <Card title="four Product" />
-              <Card title="five Product" />
-            </div>
-          </div>
-          <div className="header__text">
-            <b>Bars</b>
-            <hr />
-            <div className="productCard">
-              <Card title="one Product" />
-              <Card title="two Product" />
-              <Card title="three Product" />
-              <Card title="four Product" />
-              <Card title="five Product" />
-            </div>
-          </div>
-          <div className="header__text">
-            <b>Specials</b>
-            <hr />
-            <div className="productCard">
-              <Card title="one Product" />
-              <Card title="two Product" />
-              <Card title="three Product" />
-              <Card title="four Product" />
-              <Card title="five Product" />
-            </div>
-          </div>
-          <div className="header__text">
-            <b>Baskets</b>
-            <hr />
-            <div className="productCard">
-              <Card title="one Product" />
-              <Card title="two Product" />
-              <Card title="three Product" />
-              <Card title="four Product" />
-              <Card title="five Product" />
-            </div>
-          </div>
         </Container>
       </Layout>
     )
+  }
+
+  updateDimensions = () => {
+    const pageSize = window.innerWidth > 991 ? 3 : 1;
+    this.setState({ pageSize });
+  };
+
+  componentDidMount() {
+    window.addEventListener('resize', this.updateDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateDimensions);
   }
 }
 
