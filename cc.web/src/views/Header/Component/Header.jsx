@@ -68,8 +68,6 @@ ScrollTop.propTypes = {
 
 
 export default function BackToTop(props) {
-  console.log('in header')
-  console.log(props)
   const navigateToProducts = () => props.history.push('/products');
   const goHome = () => props.history.push('/');
   const classes = useStyles();

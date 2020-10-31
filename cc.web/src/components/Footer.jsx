@@ -43,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
       color: '#4d4d4d',
     },
     float: 'left',
+    cursor: 'pointer'
   },
   footerLinks: {
     color: '#000000',

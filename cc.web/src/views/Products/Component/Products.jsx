@@ -125,8 +125,11 @@ const products = [
 
 class Products extends React.Component {
   state = {
-    pageSize: window.innerWidth > 991 ? 3 : 1
+    pageSize: window.innerWidth > 991 ? 3 : window.innerWidth > 700 ? 2 : 1
   };
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
 
   render() {
     const { pageSize } = this.state;
@@ -149,7 +152,7 @@ class Products extends React.Component {
   }
 
   updateDimensions = () => {
-    const pageSize = window.innerWidth > 991 ? 3 : 1;
+    const pageSize = window.innerWidth > 991 ? 3 : window.innerWidth > 700 ? 2 : 1;
     this.setState({ pageSize });
   };
 

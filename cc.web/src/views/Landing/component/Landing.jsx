@@ -46,6 +46,7 @@ class Landing extends React.Component {
           <center style={{ marginTop: '10px' }}>
             <img src='cc_banner_small.jpg' className='headerLogo' />
           </center>
+          <br />
 
           <h1 className="headers"><u>Featured products</u></h1>
           <div className="productCard">
