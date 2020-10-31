@@ -1,5 +1,7 @@
 import React from 'react';
-import { Button, Jumbotron, Image } from 'react-bootstrap';
+import { Jumbotron, Image } from 'react-bootstrap';
+import Button from '@material-ui/core/Button';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { Paper, Slide } from '@material-ui/core';
 import Testimonials from '../../Testimonials'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -37,15 +39,14 @@ class Landing extends React.Component {
       textAlign: 'center',
       fontSize: '4em'
     }
+    const navigateToProducts = () => this.props.history.push('/products');
     return (
       <Layout {...this.props}>
         <div>
           <center style={{ marginTop: '10px' }}>
             <img src='cc_banner_small.jpg' className='headerLogo' />
           </center>
-          <p></p>
-          <h3></h3>
-
+          <br />
 
           <h1 className="headers"><u>Featured products</u></h1>
           <div className="productCard">
@@ -54,10 +55,22 @@ class Landing extends React.Component {
             <Card title='hello brotha' />
           </div>
 
+          <center style={{ margin: 'auto', width: '80%', marginBottom: '50px' }}>
+            <Paper elevation={3} className="shopCard">
+              <h1>
+                Shop more products &nbsp;
+                <span onClick={navigateToProducts} className="shopPointer">
+                  here &nbsp;
+                  <ArrowForwardIcon />
+                </span>
+              </h1>
+            </Paper>
+          </center>
 
-          <center style={{ margin: 'auto', width: '80%', height: '400px' }}>
+          <center style={{ margin: 'auto', width: '80%', marginBottom: '50px' }}>
             <Testimonials items={items} />
           </center>
+
         </div>
       </Layout>
     )
