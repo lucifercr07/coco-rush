@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
@@ -21,6 +23,9 @@ const useStyles = makeStyles((theme) => ({
     bottom: theme.spacing(2),
     right: theme.spacing(2),
   },
+  grow: {
+    flexGrow: 1
+  }
 }));
 
 function ScrollTop(props) {
@@ -61,25 +66,36 @@ ScrollTop.propTypes = {
   window: PropTypes.func,
 };
 
- 
+
 export default function BackToTop(props) {
   console.log('in header')
-    console.log(props)
+  console.log(props)
   const navigateToProducts = () => props.history.push('/products');
   const goHome = () => props.history.push('/');
+  const classes = useStyles();
   return (
     <React.Fragment>
       <CssBaseline />
       <AppBar style={{ backgroundColor: 'white' }}>
 
         <Toolbar>
-          <HomeIcon fontSize='large' className="brown" onClick={goHome} />
-          <button class="tablink brown" onClick={navigateToProducts} >Shop Now</button>
-          <img src="header.png" style={{ width: '15%', maxWidth: '150px', minWidth: '150px' }} />
-          <button class="tablink brown" >Blog</button>
-          <Badge badgeContent={4} color="secondary">
-            <ShoppingCartIcon fontSize='large' className="brown" />
-          </Badge>
+          <IconButton className="brown" size="large" onClick={goHome} >
+            <HomeIcon />
+          </IconButton>
+          <Button className="tablink brown" size="large" onClick={navigateToProducts} >
+            Shop Now
+          </Button>
+          <div className={classes.grow} />
+          <img src="header.png" style={{ width: "45%", maxWidth: "120px" }} />
+          <div className={classes.grow} />
+          <Button className="tablink brown" size="large">
+            Blog
+          </Button>
+          <IconButton className="brown" size="large" onClick={goHome} >
+            <Badge badgeContent={4} color="secondary">
+              <ShoppingCartIcon />
+            </Badge>
+          </IconButton>
         </Toolbar>
       </AppBar>
       <Toolbar id="back-to-top-anchor" />

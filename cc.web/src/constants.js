@@ -111,7 +111,7 @@ const INDIA_DELIVERY_COST_LIST = {
 
 const INSTAGRAM_URL = 'https://www.instagram.com/thecocorush/',
   FACEBOOK_URL = 'https://www.facebook.com/thecocorush',
-  INR_SYMBOL = '₹';
+  INR_SYMBOL = '₹',
   BASE_URL = 'http://localhost:8080'
 
 export {
