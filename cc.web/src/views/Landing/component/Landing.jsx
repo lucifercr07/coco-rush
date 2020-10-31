@@ -46,9 +46,6 @@ class Landing extends React.Component {
           <center style={{ marginTop: '10px' }}>
             <img src='cc_banner_small.jpg' className='headerLogo' />
           </center>
-          <p></p>
-          <h3></h3>
-
 
           <h1 className="headers"><u>Featured products</u></h1>
           <div className="productCard">
@@ -56,11 +53,6 @@ class Landing extends React.Component {
             <Card title='hello brotha' />
             <Card title='hello brotha' />
           </div>
-
-
-          <center style={{ margin: 'auto', width: '80%', marginBottom: '50px' }}>
-            <Testimonials items={items} />
-          </center>
 
           <center style={{ margin: 'auto', width: '80%', marginBottom: '50px' }}>
             <Paper elevation={3} className="shopCard">
@@ -72,6 +64,10 @@ class Landing extends React.Component {
                 </span>
               </h1>
             </Paper>
+          </center>
+
+          <center style={{ margin: 'auto', width: '80%', marginBottom: '50px' }}>
+            <Testimonials items={items} />
           </center>
 
         </div>
