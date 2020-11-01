@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,6 +46,7 @@ public class FileController {
 		return ResponseEntity.ok("{ \"id\" : " + id + " }");
 	}
 
+	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping("/files/{id}")
 	public Optional<Files> getPhoto(@PathVariable String id) {
 		logger.info("File id is: " + id);
