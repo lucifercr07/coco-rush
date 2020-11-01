@@ -10,8 +10,8 @@ import { Card, Layout } from '../../../components';
 import './style.scss';
 
 class Landing extends React.Component {
-  componentDidMount() {
-
+  componentWillMount() {
+    window.scrollTo(0, 0);
   }
   render() {
 

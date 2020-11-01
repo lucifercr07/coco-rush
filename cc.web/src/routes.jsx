@@ -7,6 +7,7 @@ import {
   Products,
   AboutUs,
   ProductDetails,
+  Cart,
 } from './views'
 
 export default (
@@ -18,5 +19,6 @@ export default (
     <Route path="/products" component={Products} />
     <Route path="/aboutUs" component={AboutUs} />
     <Route path="/productDetails" component={ProductDetails} />
+    <Route path="/cart" component={Cart} />
   </Route>
 )

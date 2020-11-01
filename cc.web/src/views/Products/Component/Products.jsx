@@ -127,7 +127,7 @@ class Products extends React.Component {
   state = {
     pageSize: window.innerWidth > 991 ? 3 : window.innerWidth > 700 ? 2 : 1
   };
-  componentDidMount() {
+  componentWillMount() {
     window.scrollTo(0, 0);
   }
 

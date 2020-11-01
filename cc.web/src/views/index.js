@@ -3,6 +3,7 @@ import Landing from './Landing';
 import Products from './Products';
 import AboutUs from './AboutUs';
 import ProductDetails from './ProductDetails';
+import Cart from './Cart';
 
 export {
   Checkout,
@@ -10,4 +11,5 @@ export {
   Products,
   AboutUs,
   ProductDetails,
+  Cart,
 }
