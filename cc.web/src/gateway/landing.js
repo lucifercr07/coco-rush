@@ -2,11 +2,11 @@ import request from '../utils/request';
 import {BASE_URL} from '../constants'
 const getProducts = query => (
   request.get({
-    uri: `${BASE_URL}/product`,
+    url: `${BASE_URL}/product`,
     query,
   })
 );
 
-export {
+export default {
   getProducts,
 }

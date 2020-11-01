@@ -1,4 +1,4 @@
-import { delay, takeEvery, takeLatest, put } from 'redux-saga/effects';
+import {takeLatest } from 'redux-saga/effects';
 import * as sideEffects from './category';
 import { ACTIONS } from '../../category'
 

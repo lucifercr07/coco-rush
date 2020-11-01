@@ -24,6 +24,10 @@ const landingReducer = (state = initialState, action) => {
         ...state,
         fetching: false,
       };
+    default:
+      return {
+        ...state
+      };
   }
 };
 // Exports
