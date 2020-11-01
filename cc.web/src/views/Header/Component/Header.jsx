@@ -70,6 +70,7 @@ ScrollTop.propTypes = {
 export default function BackToTop(props) {
   const navigateToProducts = () => props.history.push('/products');
   const goHome = () => props.history.push('/');
+  const goToCart = () => props.history.push('/cart');
   const classes = useStyles();
   return (
     <React.Fragment>
@@ -89,7 +90,7 @@ export default function BackToTop(props) {
           <Button className="tablink brown" size="large">
             Blog
           </Button>
-          <IconButton className="brown" size="large" onClick={goHome} >
+          <IconButton className="brown" size="large" onClick={goToCart} >
             <Badge badgeContent={4} color="secondary">
               <ShoppingCartIcon />
             </Badge>
