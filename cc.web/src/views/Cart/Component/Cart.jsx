@@ -9,12 +9,13 @@ class Cart extends React.Component {
   }
 
   updateDimensions = () => {
-    const renderHeader = window.innerWidth > 649 ;
+    const renderHeader = window.innerWidth > 649;
     this.setState({ renderHeader });
   };
 
   componentDidMount() {
     window.addEventListener('resize', this.updateDimensions);
+    window.scrollTo(0, 0);
   }
 
   componentWillUnmount() {
@@ -23,7 +24,7 @@ class Cart extends React.Component {
 
   render() {
     return (
-      <Layout>
+      <Layout {...this.props}>
         <h1>Shopping Cart</h1>
 
         <div class="shopping-cart">
