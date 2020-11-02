@@ -1,8 +1,12 @@
 import React from 'react';
-import { Paper } from '@material-ui/core';
+import { Paper, Container, Button, ButtonGroup } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
+import { Form, InputGroup } from 'react-bootstrap'
 import { INR_SYMBOL } from '../../../constants'
 import './style.scss';
-import {Layout} from '../../../components'
+import { Layout } from '../../../components'
+import Grid from '@material-ui/core/Grid';
 
 class ProductDetails extends React.Component {
   render() {
@@ -14,29 +18,46 @@ class ProductDetails extends React.Component {
     }
     return (
       <Layout {...this.props}>
-      <div className="container">
-        <center className="left-column">
-          <img src="chocolate.jpg" alt="" className="img" />
-        </center>
-        <div className="right-column">
-          <Paper style={{ padding: '20px', backgroundColor: '#F8D9B2' }}>
-            <div className="product-description">
-              <h1>{productName}</h1>
-              <p>The preferred choice of a vast range of chocolate lovers. Creamy nutty and what not!!! The preferred choice of a vast range of chocolate lovers. Creamy nutty and what not!!!The preferred choice of a vast range of chocolate lovers. Creamy nutty and what not!!!</p>
-            </div>
-
-            <div className="product-price">
-              <span>{`${INR_SYMBOL} 148`}</span>
-              <a href="#" className="cart-btn">Add to cart</a>
-              <div className="quantity buttons_added">
-                <input type="button" value="-" className="minus" />
-                <input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" className="input-text qty text" size="4" pattern="" inputmode="" />
-                <input type="button" value="+" className="plus" />
-              </div>
-            </div>
-          </Paper>
-        </div>
-      </div>
+        <Container maxWidth="lg">
+          <Grid container spacing={3} direction="row" justify="center" alignItems="center">
+            <Grid item xs={12} sm={6}>
+              <img src="chocolate.jpg" alt="" className="img" />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Paper className="description" elevation={3}>
+                <h1>{productName}</h1>
+                <div className="font">
+                  PRICE : <span>{`${INR_SYMBOL} 148`}</span>
+                  <br /> <br />
+                  DESCRIPTION
+                </div>
+                <p>The preferred choice of a vast range of chocolate lovers. Creamy nutty and what not!!! The preferred choice of a vast range of chocolate lovers. Creamy nutty and what not!!!The preferred choice of a vast range of chocolate lovers. Creamy nutty and what not!!!</p>
+                <br />
+                <Form.Group>
+                  <InputGroup>
+                    <InputGroup.Prepend className="quanity-width">
+                      <Button variant="contained" fullWidth={true} className="quanity-button" >
+                        < RemoveIcon />
+                      </Button>
+                    </InputGroup.Prepend>
+                    <Form.Control
+                      type="text"
+                      placeholder="QTY"
+                      value={1}
+                      className="quanity-input"
+                    />
+                    <InputGroup.Append className="quanity-width">
+                      <Button variant="contained" fullWidth={true} className="quanity-button" >
+                        < AddIcon />
+                      </Button>
+                    </InputGroup.Append>
+                  </InputGroup>
+                </Form.Group>
+                <Button variant="contained" fullWidth={true} className="cart-button">Add to cart</Button>
+              </Paper>
+            </Grid>
+          </Grid>
+        </Container>
       </Layout>
     )
   }

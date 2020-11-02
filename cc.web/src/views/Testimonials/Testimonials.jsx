@@ -6,7 +6,7 @@ import './style.scss'
 function Item(props) {
   return (
     
-    <Paper elevation='10'>
+    <Paper elevation={3}>
       <div className="paper">
       <h1>{props.item.name}</h1>
       <p>{props.item.description}</p>

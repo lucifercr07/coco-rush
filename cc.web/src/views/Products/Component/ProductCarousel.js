@@ -5,7 +5,6 @@ import { get } from 'lodash';
 import './style.scss';
 
 class ProductCarousel extends React.Component {
-
   get paginateCards() {
     const { products, pageSize } = this.props;
     const size = products.length;
@@ -14,7 +13,7 @@ class ProductCarousel extends React.Component {
     let pages = [];
 
     for (let pageNo = 0; pageNo < noOfPages; pageNo++) {
-      pages.push(<div className="productCard">
+      pages.push(<div className="productCard" key={pageNo}>
         {this.pageCards(pageNo)}
       </div>);
     }
@@ -29,19 +28,25 @@ class ProductCarousel extends React.Component {
     let cards = [];
     for (let cardNo = pageNo * pageSize; cardNo < endIndex; cardNo++) {
       if (cardNo >= size) break;
-      cards.push(<Card title={get(products, `[${cardNo}].name`)} />)
+      cards.push(
+        <Card
+          key={cardNo}
+          product={get(products, `[${cardNo}]`, {})} />
+      );
     }
     return cards;
   }
 
   render() {
-
+    const pages = this.paginateCards;
     return (
       <Carousel
         autoPlay={false}
-        navButtonsAlwaysVisible={true}
+        navButtonsAlwaysVisible={pages.length > 1 ? true : false}
+        navButtonsAlwaysInvisible={pages.length > 1 ? false : true}
+        indicators={pages.length > 1 ? true : false}
       >
-        {this.paginateCards}
+        {pages}
       </Carousel>
     )
   }

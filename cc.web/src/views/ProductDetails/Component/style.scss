@@ -1,201 +1,56 @@
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 15px;
-  display: flex;
-}
-
-.left-column {
-  width: 65%;
-  position: relative;
-  max-height: 400px
-}
- 
-.right-column {
-  width: 35%;
-  margin-top: 60px;
-}
-
-.product-description {
-  border-bottom: 1px solid #E1E8EE;
-  margin-bottom: 20px;
-}
-.product-description span {
-  font-size: 12px;
-  color: #358ED7;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  text-decoration: none;
-}
-.product-description h1 {
-  font-weight: 300;
-  font-size: 52px;
-  color: #43484D;
-  letter-spacing: -2px;
-}
-.product-description p {
-  font-size: 16px;
-  font-weight: 300;
-  color: #86939E;
-  line-height: 24px;
-}
-
-.cable-choose {
-  margin-bottom: 20px;
-}
- 
-.cable-choose button {
-  border: 2px solid #E1E8EE;
-  border-radius: 6px;
-  padding: 13px 20px;
-  font-size: 14px;
-  color: #5E6977;
-  background-color: #fff;
-  cursor: pointer;
-  transition: all .5s;
-}
- 
-.cable-choose button:hover,
-.cable-choose button:active,
-.cable-choose button:focus {
-  border: 2px solid #86939E;
-  outline: none;
-}
- 
-.cable-config {
-  border-bottom: 1px solid #E1E8EE;
-  margin-bottom: 20px;
-}
- 
-.cable-config a {
-  color: #358ED7;
-  text-decoration: none;
-  font-size: 12px;
-  position: relative;
-  margin: 10px 0;
-  display: inline-block;
-}
-.cable-config a:before {
-  height: 15px;
-  width: 15px;
-  border-radius: 50%;
-  border: 2px solid rgba(53, 142, 215, 0.5);
-  display: inline-block;
-  text-align: center;
-  line-height: 16px;
-  opacity: 0.5;
-  margin-right: 5px;
-}
-
-.product-price {
-  display: flex;
-  align-items: center;
-}
- 
-.product-price span {
-  font-size: 26px;
-  font-weight: 300;
-  color: #43474D;
-  margin-right: 20px;
-}
- 
-.cart-btn {
-  display: inline-block;
-  background-color: #654321;
-  border-radius: 6px;
-  font-size: 16px;
-  color: #FFFFFF;
-  text-decoration: none;
-  padding: 12px 30px;
-  transition: all .5s;
-}
-.cart-btn:hover {
-  background-color: #64af3d;
-}
-
-.img {
-  width: 70%;
-}
-
-@media (max-width: 700px) {
-  .container {
-    flex-direction: column;
-    margin-top: 60px;
-  }
- 
-  .left-column,
-  .right-column {
-    width: 100%;
-    align-content: center;
-  }
- 
-  .left-column img {
-    max-width: 300px;
-    align-content: center;
-    top: -65px;
-  }
-}
- 
-@media (max-width: 535px) {
-  .left-column img {
-    width: 220px;
-    top: -85px;
-    align-items: center;
-  }
-}
-
-.quantity {
-  display: inline-block;
+.description{
+  font-family: 'Architects Daughter';
+  background-color: #654321 !important;
+  padding: 30px;
   margin: 20px;
+  color: white !important;
 }
  
- .quantity .input-text.qty {
-  width: 35px;
-  height: 39px;
-  padding: 0 5px;
-  text-align: center;
+.img {
+  max-width: 100%;
+  min-width: 100%;
+  padding: 20px;
+}
+
+.font{
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.quanity-width{
+  width: 35%;
+}
+
+.quanity-button{
+  background-color: white !important;
+  border-radius: 0px !important;
+  outline: none !important;
+}
+
+.cart-button{
+  background-color: white !important;
+  border-radius: 0px !important;
+}
+
+.quanity-input {
+  border-color: white;
+  border-style: solid;
+  color: white;
   background-color: transparent;
-  border: 1px solid #efefef;
- }
- 
- .quantity.buttons_added {
-  text-align: left;
-  position: relative;
-  white-space: nowrap;
-  vertical-align: top; }
- 
- .quantity.buttons_added input {
-  display: inline-block;
-  margin: 0;
-  vertical-align: top;
-  box-shadow: none;
- }
- 
- .quantity.buttons_added .minus,
- .quantity.buttons_added .plus {
-  padding: 7px 10px 8px;
-  height: 41px;
-  background-color: #ffffff;
-  border: 1px solid #efefef;
-  cursor:pointer;}
- 
- .quantity.buttons_added .minus {
-  border-right: 0; }
- 
- .quantity.buttons_added .plus {
-  border-left: 0; }
- 
- .quantity.buttons_added .minus:hover,
- .quantity.buttons_added .plus:hover {
-  background: #eeeeee; }
- 
- .quantity input::-webkit-outer-spin-button,
- .quantity input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  margin: 0; }
-  
-  .quantity.buttons_added .minus:focus,
- .quantity.buttons_added .plus:focus {
-  outline: none; }
- 
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  border-radius: 0px;
+  text-align: center;
+}
+
+.quanity-input::placeholder {
+  color: #f5d7b9
+}
+
+.quanity-input:focus {
+  border-color: white;
+  border-style: solid;
+  color: white;
+  background-color: transparent;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  border-radius: 0px;
+  text-align: center;
+}
