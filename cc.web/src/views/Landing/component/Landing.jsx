@@ -2,7 +2,7 @@ import React from 'react';
 import { Jumbotron, Image } from 'react-bootstrap';
 import Button from '@material-ui/core/Button';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
-import {Paper, Slide } from '@material-ui/core';
+import { Paper, Slide } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Testimonials from '../../Testimonials'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -31,19 +31,6 @@ class Landing extends React.Component {
       }
     ]
 
-
-    const spanClass = {
-      display: 'block',
-      // float:'left',
-      // marginLeft:'25px',
-      position: 'relative',
-      fontFamily: 'tangerine',
-      // minHeight:'35px',
-      // maxWidth:'125px',
-      paddingBottom: '10px',
-      textAlign: 'center',
-      fontSize: '4em'
-    }
     const navigateToProducts = () => this.props.history.push('/products');
     return (
       <Layout {...this.props}>
@@ -58,13 +45,13 @@ class Landing extends React.Component {
               <h1 className="headers">Featured Products</h1>
               <Grid container className="productCard" direction="row" justify="center" alignItems="center">
                 <Grid item xs={12} sm={4} >
-                  <Card title='Some Chocolate Name' />
+                  <Card product={{ name: 'Some Chocolate Name', price: 243 }}  {...this.props} />
                 </Grid>
                 <Grid item xs={12} sm={4} >
-                  <Card title='hello brotha' />
+                  <Card title='hello brotha' {...this.props} />
                 </Grid>
                 <Grid item xs={12} sm={4} >
-                  <Card title='hello brotha' />
+                  <Card title='hello brotha' {...this.props} />
                 </Grid>
               </Grid>
             </Paper>

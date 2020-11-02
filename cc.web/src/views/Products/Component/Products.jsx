@@ -164,7 +164,8 @@ class Products extends React.Component {
               <hr />
               <ProductCarousel
                 products={products.filter(product => product.category === category)}
-                pageSize={pageSize} />
+                pageSize={pageSize}
+                {...this.props} />
                 <br/>
                 <br/>
             </div>

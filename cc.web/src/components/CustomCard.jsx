@@ -1,14 +1,12 @@
 import { Card } from 'react-bootstrap';
 import { get } from 'lodash';
-import { useHistory } from "react-router";
 
 import React from 'react';
 import '../styles/card.scss';
 
 function CustomCard(props) {
   const { product } = props;
-  const history = useHistory();
-  const showProductDetail = () => history.push(`/productdetails/${get(product, '_id', '')}`);
+  const showProductDetail = () => props.history.push(`/productDetails?_id=${get(product,'_id', '')}`);
   return (
     <Card style={{
       margin: '20px',
