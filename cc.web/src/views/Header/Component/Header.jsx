@@ -77,19 +77,19 @@ export default function BackToTop(props) {
       <AppBar style={{ backgroundColor: 'white' }}>
 
         <Toolbar>
-          <IconButton className="brown" size="large" onClick={goHome} >
+          <IconButton className="brown" size="medium" onClick={goHome} >
             <HomeIcon />
           </IconButton>
-          <Button className="tablink brown" size="large" onClick={navigateToProducts} >
+          <Button className="tablink brown" size="medium" onClick={navigateToProducts} >
             Shop Now
           </Button>
           <div className={classes.grow} />
-          <img src="header.png" style={{ width: "45%", maxWidth: "120px" }} />
+          <img src="header.png" className="logo" />
           <div className={classes.grow} />
-          <Button className="tablink brown" size="large">
+          <Button className="tablink brown" size="medium">
             Blog
           </Button>
-          <IconButton className="brown" size="large" onClick={goHome} >
+          <IconButton className="brown" size="medium" onClick={goHome} >
             <Badge badgeContent={4} color="secondary">
               <ShoppingCartIcon />
             </Badge>

@@ -6,3 +6,24 @@
 .tablink:hover {
   background-color: whitesmoke;
 }
+
+@media screen and (max-width:319px) {
+  .logo{
+    width: 0%;
+    max-width: 120px;
+  }
+}
+
+@media screen and (min-width:319px) and (max-width:378px) {
+  .logo{
+    width: 20%;
+    max-width: 120px;
+  }
+}
+
+@media screen and (min-width:378px) {
+  .logo{
+    width: 25%;
+    max-width: 120px;
+  }
+}
