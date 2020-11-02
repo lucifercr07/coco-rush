@@ -33,6 +33,7 @@ class ProductCarousel extends React.Component {
       if (cardNo >= size) break;
       cards.push(
         <Card
+          {...this.props}
           key={cardNo}
           product={get(products, `[${cardNo}]`, {})} />
       );

@@ -30,19 +30,6 @@ class Landing extends React.Component {
       }
     ]
 
-
-    const spanClass = {
-      display: 'block',
-      // float:'left',
-      // marginLeft:'25px',
-      position: 'relative',
-      fontFamily: 'tangerine',
-      // minHeight:'35px',
-      // maxWidth:'125px',
-      paddingBottom: '10px',
-      textAlign: 'center',
-      fontSize: '4em'
-    }
     const navigateToProducts = () => this.props.history.push('/products');
     return (
       <Layout {...this.props}>
@@ -56,9 +43,9 @@ class Landing extends React.Component {
             <Paper elevation={3} className="feature">
               <h1 className="headers">Featured Products</h1>
               <div className="productCard" style={{ width: '80%' }}>
-                <Card title='Some Chocolate Name' />
-                <Card title='hello brotha' />
-                <Card title='hello brotha' />
+                <Card product={{ title: 'Some Chocolate Name', price: '500' }} {...this.props} />
+                <Card title='hello brotha' {...this.props} />
+                <Card title='hello brotha' {...this.props} />
               </div>
             </Paper>
           </center>
