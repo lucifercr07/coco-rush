@@ -1,12 +1,12 @@
 .headerLogo {
   // margin: auto; 
-  width: 75%;
+  width: 80%;
   height: 30em;
 }
 
 @media (max-width:700px){
   .headerLogo {
-      height: 200px;
+    height: 150px;
   }
 }
 
@@ -26,11 +26,17 @@
 }
 
 .headers {
-  font-family: 'Architects Daughter', cursive;
   text-align: center;
   margin-left: 30px;
   margin-right: 30px;
   color: #654321;
+  font-weight: bold;
+}
+
+.feature {
+  font-family: 'Amatic SC', cursive;
+  background-color: rgba(#c58c4a, 0.5) !important;
+  padding: 20px;
 }
 
 .shopCard {

@@ -8,7 +8,9 @@ class Layout extends Component {
     return (
       <div>
         <Header {...this.props} />
-        {this.props.children}
+        <div style={{ minHeight: 'calc(100vh - 155px)' }}>
+          {this.props.children}
+        </div>
         <Footer />
       </div>
     )

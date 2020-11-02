@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],
     textAlign: 'center',
+    bottom: 0,
   },
   socialMediaIcon: {
     margin: "0px 2px",

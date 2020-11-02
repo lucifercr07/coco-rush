@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+import { Layout } from '../../components';
 
 const useStyles = makeStyles((theme) => ({
   // to-do switch to a style.scss file
@@ -37,30 +38,32 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const aboutUsContent = {
-    title: 'About Us',
-    description:
-        "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents. Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents. Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents. Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents. Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents. Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents. Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
-    // image: 'https://source.unsplash.com/random',
-    imgText: 'main image description',
-    linkText: 'Continue reading…',
+  title: 'About Us',
+  description:
+    "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents. Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents. Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents. Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents. Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents. Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents. Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
+  // image: 'https://source.unsplash.com/random',
+  imgText: 'main image description',
+  linkText: 'Continue reading…',
 };
 
 function AboutUs(props) {
   const classes = useStyles();
 
   return (
-    <Paper className={classes.aboutUs} style={{ backgroundImage: `url(${aboutUsContent.image})` }}>
-      {<img style={{ display: 'none' }} src={aboutUsContent.image} alt={aboutUsContent.imageText} />}
+    <Layout {...props}>
+      <Paper className={classes.aboutUs} style={{ backgroundImage: `url(${aboutUsContent.image})` }}>
+        {<img style={{ display: 'none' }} src={aboutUsContent.image} alt={aboutUsContent.imageText} />}
         <div style={{ fontSize: '55px', align: "center" }}>
-            {aboutUsContent.title}
+          {aboutUsContent.title}
         </div>
-    <div className={classes.overlay} />
-          <div className={classes.aboutUsContent}>
-            <p>
-              {aboutUsContent.description}
-            </p>
-          </div>
-    </Paper>
+        <div className={classes.overlay} />
+        <div className={classes.aboutUsContent}>
+          <p>
+            {aboutUsContent.description}
+          </p>
+        </div>
+      </Paper>
+    </Layout>
   );
 }
 
