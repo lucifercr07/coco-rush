@@ -2,7 +2,8 @@ import React from 'react';
 import { Jumbotron, Image } from 'react-bootstrap';
 import Button from '@material-ui/core/Button';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
-import { Paper, Slide } from '@material-ui/core';
+import {Paper, Slide } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 import Testimonials from '../../Testimonials'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.scss';
@@ -25,7 +26,7 @@ class Landing extends React.Component {
       },
       {
         name: "Prashant Shubham",
-        description: "Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen!Probably the most random thing you have ever seen! Probably the most random thing you have ever seen!Probably the most random thing you have ever seen! Probably the most random thing you have ever seen!Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen!",
+        description: "Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen!",
         rating: 3
       }
     ]
@@ -55,11 +56,17 @@ class Landing extends React.Component {
           <center style={{ margin: 'auto', width: '80%', marginBottom: '50px' }}>
             <Paper elevation={3} className="feature">
               <h1 className="headers">Featured Products</h1>
-              <div className="productCard" style={{ width: '80%' }}>
-                <Card title='Some Chocolate Name' />
-                <Card title='hello brotha' />
-                <Card title='hello brotha' />
-              </div>
+              <Grid container className="productCard" direction="row" justify="center" alignItems="center">
+                <Grid item xs={12} sm={4} >
+                  <Card title='Some Chocolate Name' />
+                </Grid>
+                <Grid item xs={12} sm={4} >
+                  <Card title='hello brotha' />
+                </Grid>
+                <Grid item xs={12} sm={4} >
+                  <Card title='hello brotha' />
+                </Grid>
+              </Grid>
             </Paper>
           </center>
 

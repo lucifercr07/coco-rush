@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from '@material-ui/core';
+import { Container, Grid } from '@material-ui/core';
 import { Layout } from '../../../components';
 import { capitalize } from 'lodash';
 import ProductCarousel from './ProductCarousel';
@@ -155,15 +155,18 @@ class Products extends React.Component {
     return (
       <Layout {...this.props}>
         <Container maxWidth="lg">
+          <br/>
           {categories.map((category, index) =>
             <div className="cardFont" key={index}>
-              <div className="header__text" >
-                <b>{capitalize(category)}</b>
+              <div className="" >
+                <h2><b>{capitalize(category)}</b></h2>
               </div>
               <hr />
               <ProductCarousel
                 products={products.filter(product => product.category === category)}
                 pageSize={pageSize} />
+                <br/>
+                <br/>
             </div>
           )}
 
