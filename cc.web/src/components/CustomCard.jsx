@@ -16,7 +16,7 @@ function CustomCard(props) {
     }} onClick={showProductDetail}>
       <Card.Img style={{ width: '100%', overflow: "hidden", height: '200px' }} variant="top" src="chocolate.jpg" />
       <Card.Body style={{ wordWrap: 'wrap' }}>
-        <Card.Title>{get(product, 'name', 'No title')}</Card.Title>
+        <Card.Title>{get(product, 'title', 'No title')}</Card.Title>
         <Card.Text>Rs. {get(product, 'price', 'Price not defined')}</Card.Text>
       </Card.Body>
     </Card>

@@ -5,47 +5,11 @@ import { get } from 'lodash';
 import './style.scss';
 
 class ProductCarousel extends React.Component {
-  get paginateCards() {
-    const { products, pageSize } = this.props;
-    const size = products.length;
-    const pageFloor = Math.floor(size / pageSize);
-    const noOfPages = pageFloor * pageSize < size ? pageFloor + 1 : pageFloor;
-    let pages = [];
-
-    for (let pageNo = 0; pageNo < noOfPages; pageNo++) {
-      pages.push(
-        <center>
-          <div className="productCard" key={pageNo}>
-            {this.pageCards(pageNo)}
-          </div>
-        </center>);
-    }
-
-    return pages;
-  }
-
-  pageCards = (pageNo) => {
-    const { products, pageSize } = this.props;
-    const size = products.length;
-    const endIndex = pageNo * pageSize + pageSize;
-    let cards = [];
-    for (let cardNo = pageNo * pageSize; cardNo < endIndex; cardNo++) {
-      if (cardNo >= size) break;
-      cards.push(
-        <Card
-          {...this.props}
-          key={cardNo}
-          product={get(products, `[${cardNo}]`, {})} />
-      );
-    }
-    return cards;
-  }
-
   get cards() {
     const { products } = this.props;
     return products.map((product, index) =>
       <center key={index}>
-        <Card product={product} />
+        <Card product={product} {...this.props}/>
       </center>
     )
   }

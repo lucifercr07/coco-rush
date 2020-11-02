@@ -45,7 +45,7 @@ class Landing extends React.Component {
               <h1 className="headers">Featured Products</h1>
               <Grid container className="productCard" direction="row" justify="center" alignItems="center">
                 <Grid item xs={12} sm={4} >
-                  <Card product={{ name: 'Some Chocolate Name', price: 243 }}  {...this.props} />
+                  <Card product={{ title: 'Some Chocolate Name', price: 243, _id:3213176 }}  {...this.props} />
                 </Grid>
                 <Grid item xs={12} sm={4} >
                   <Card title='hello brotha' {...this.props} />
