@@ -5,14 +5,13 @@ import { actionCreators } from '../../../redux/Landing';
 
 const mapStateToProps = ({ landing }) => (
   {
-    fetching: get(landing, 'fetching', false)
+    fetching: get(landing, 'fetching', false),
+    products: get(landing, 'products', []),
   });
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getProducts: () => {
-      return dispatch(actionCreators.getAllProducts())
-    },
+    getProducts: () => dispatch(actionCreators.getAllProducts()),
   };
 }
 

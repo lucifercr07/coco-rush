@@ -31,7 +31,6 @@ const checkoutReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case actions.CHANGE_FIRST_NAME: {
-      console.log(action)
       return {
         ...state,
         addressForm: {

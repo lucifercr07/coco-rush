@@ -107,7 +107,20 @@ const INDIA_DELIVERY_COST_LIST = {
   'Uttarakhand': 80,
   'Uttar Pradesh': 80,
   'West Bengal': 57
-}
+};
+
+const TESTIMONIALS = [
+  {
+    name: "Arka Naskar",
+    description: "Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! ",
+    rating: 4
+  },
+  {
+    name: "Prashant Shubham",
+    description: "Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen!Probably the most random thing you have ever seen! Probably the most random thing you have ever seen!Probably the most random thing you have ever seen! Probably the most random thing you have ever seen!Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen!",
+    rating: 3
+  }
+];
 
 const INSTAGRAM_URL = 'https://www.instagram.com/thecocorush/',
   FACEBOOK_URL = 'https://www.facebook.com/thecocorush',
@@ -123,4 +136,5 @@ export {
   FACEBOOK_URL,
   INR_SYMBOL,
   BASE_URL,
+  TESTIMONIALS,
 };
