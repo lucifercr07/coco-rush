@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -42,16 +43,29 @@ public class ProductController {
 		return response;
 	}
 
+	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping("/product")
-	public @ResponseBody List<Product> getProducts(@RequestParam("category") List<String> queryParameters) {
-		if (queryParameters.size() != 0) {
-			logger.info("Category query params received: " + queryParameters.toString());
-			return productService.findProductByCategoryName(queryParameters);
+	public @ResponseBody List<Product> getProducts(@RequestParam(required = false) List<String> category,
+			@RequestParam(required = false) Boolean featured) {
+		if (category != null && category.size() != 0) {
+			logger.info("Category query params received: " + category.toString());
+			return productService.findProductByCategoryName(category);
 		}
 
-		return productService.getProducts();
+		if (featured == null) {
+			logger.info("No features mentioned, getting all products.");
+			logger.info(productService.getProducts().toString());
+			return productService.getProducts();
+		}
+
+		if (featured) {
+			return productService.findFeaturedProducts(true);
+		}
+
+		return productService.findFeaturedProducts(false);
 	}
 
+	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping(value = "/product/{id}")
 	public ResponseEntity<?> getProduct(@PathVariable String id) {
 		if (id == null) {

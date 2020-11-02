@@ -28,9 +28,9 @@ const initialState = {
 };
 
 const checkoutReducer = (state = initialState, action) => {
-  
+
   switch (action.type) {
-    case actions.CHANGE_FIRST_NAME:{
+    case actions.CHANGE_FIRST_NAME: {
       console.log(action)
       return {
         ...state,
@@ -43,7 +43,7 @@ const checkoutReducer = (state = initialState, action) => {
           }
         }
       };
-}
+    }
     case actions.CHANGE_LAST_NAME:
       return {
         ...state,
@@ -174,19 +174,19 @@ const checkoutReducer = (state = initialState, action) => {
         }
       };
 
-      case actions.SET_POSTAL_CODE_ERROR:
-        return {
-          ...state,
-          addressForm: {
-            ...state.addressForm,
-            postalCode: {
-              ...state.addressForm.postalCode,
-              error: action.error
-            }
+    case actions.SET_POSTAL_CODE_ERROR:
+      return {
+        ...state,
+        addressForm: {
+          ...state.addressForm,
+          postalCode: {
+            ...state.addressForm.postalCode,
+            error: action.error
           }
-        };
+        }
+      };
     default: {
-      return state;
+      return { ...state };
     }
   }
 };

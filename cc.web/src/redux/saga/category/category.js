@@ -1,7 +1,3 @@
-// Imports: Dependencies
-import { delay, takeEvery, takeLatest, put } from 'redux-saga/effects';
-import {ACTIONS, actionCreators} from '../../counter'
-// Worker: Increase Counter Async (Delayed By 4 Seconds)
 export function* increaseCounter() {
   try {
     // Dispatch Action To Redux Store

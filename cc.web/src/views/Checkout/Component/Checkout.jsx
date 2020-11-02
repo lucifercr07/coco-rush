@@ -67,6 +67,7 @@ const useStyles = makeStyles((theme) => ({
       background: "#87592c",
     },
     stepIcon: {
+      color: "red !important",
       backgroundColor: "#654321",
     },
     root: {
@@ -125,9 +126,6 @@ function getStepContent(step, props) {
 }
 
 function shouldDisableButton(props, activeStep) {
-  console.log(validateIfErrorInProps(props.customer));
-  console.log(validateIfErrorInProps(props.address));
-  console.log(validateAddressAndCustomerFormNotEmpty(props.address, props.customer));
   switch (activeStep) {
     case 0:
       return validateIfErrorInProps(props.customer)
@@ -165,13 +163,22 @@ export default function Checkout(props) {
       <Layout {...props}>
         <main className={classes.layout}>
           <Paper className={classes.paper}>
-            <Typography component="h1" variant="h4" align="center">
+            <h5 className="header__text" align="center">
               Checkout
-          </Typography>
+            </h5>
             <Stepper activeStep={activeStep} className={classes.stepper}>
               {steps.map((label) => (
                 <Step key={label}>
-                  <StepLabel>{label}</StepLabel>
+                  <StepLabel StepIconProps={{
+                    classes: { 
+                      root: classes.stepIcon,
+                      completed: classes.stepIcon,
+                      active: classes.stepIcon,
+                      disabled: classes.stepIcon
+                    }
+                  }}>
+                    {label}
+                </StepLabel>
                 </Step>
               ))}
             </Stepper>
@@ -198,7 +205,7 @@ export default function Checkout(props) {
                       <Button
                         variant="contained"
                         color="primary"
-                        onClick={handleNext}
+                        onClick={() => handleNext(props)}
                         className={classes.button}
                         disabled={props.invalidForm}
                       >

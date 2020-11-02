@@ -12,4 +12,7 @@ public interface ProductRepository extends MongoRepository<Product, String> {
 
 	@Query("{ 'name' : ?0 }")
 	List<Product> findProductByName(String name);
+	
+	@Query(value="{ 'featured' : ?0 } }")
+	List<Product> findFeaturedProducts(Boolean isFeatured);
 }

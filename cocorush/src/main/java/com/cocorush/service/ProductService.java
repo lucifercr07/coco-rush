@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cocorush.controller.ProductController;
 import com.cocorush.entity.Product;
 import com.cocorush.repository.ProductRepository;
 
@@ -21,6 +20,7 @@ public class ProductService {
 	ProductRepository productRepository;
 
 	public Product createProduct(Product product) {
+		logger.info("Product value: " + product.toString());
 		productRepository.save(product);
 		return product;
 	}
@@ -44,5 +44,9 @@ public class ProductService {
 	public List<Product> findProductByCategoryName(List<String> categoryName) {
 		logger.info("categoryName: " + categoryName);
 		return productRepository.findByCategoryNameContaining(categoryName);
+	}
+	
+	public List<Product> findFeaturedProducts(Boolean isFeatured) {
+		return productRepository.findFeaturedProducts(isFeatured);
 	}
 }
