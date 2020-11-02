@@ -20,11 +20,13 @@ class Landing extends React.Component {
     const items = [
       {
         name: "Arka Naskar",
-        description: "Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen!Probably the most random thing you have ever seen! Probably the most random thing you have ever seen!Probably the most random thing you have ever seen! Probably the most random thing you have ever seen!Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen!"
+        description: "Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! ",
+        rating: 4
       },
       {
         name: "Prashant Shubham",
-        description: "Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen!Probably the most random thing you have ever seen! Probably the most random thing you have ever seen!Probably the most random thing you have ever seen! Probably the most random thing you have ever seen!Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen!"
+        description: "Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen!Probably the most random thing you have ever seen! Probably the most random thing you have ever seen!Probably the most random thing you have ever seen! Probably the most random thing you have ever seen!Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen! Probably the most random thing you have ever seen!",
+        rating: 3
       }
     ]
 
@@ -50,12 +52,16 @@ class Landing extends React.Component {
           </center>
           <br />
 
-          <h1 className="headers"><u>Featured products</u></h1>
-          <div className="productCard">
-            <Card title='Some Chocolate Name' />
-            <Card title='hello brotha' />
-            <Card title='hello brotha' />
-          </div>
+          <center style={{ margin: 'auto', width: '80%', marginBottom: '50px' }}>
+            <Paper elevation={3} className="feature">
+              <h1 className="headers">Featured Products</h1>
+              <div className="productCard" style={{ width: '80%' }}>
+                <Card title='Some Chocolate Name' />
+                <Card title='hello brotha' />
+                <Card title='hello brotha' />
+              </div>
+            </Paper>
+          </center>
 
           <center style={{ margin: 'auto', width: '80%', marginBottom: '50px' }}>
             <Paper elevation={3} className="shopCard">

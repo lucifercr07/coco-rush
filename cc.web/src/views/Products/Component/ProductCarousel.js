@@ -13,9 +13,12 @@ class ProductCarousel extends React.Component {
     let pages = [];
 
     for (let pageNo = 0; pageNo < noOfPages; pageNo++) {
-      pages.push(<div className="productCard" key={pageNo}>
-        {this.pageCards(pageNo)}
-      </div>);
+      pages.push(
+        <center>
+          <div className="productCard" key={pageNo}>
+            {this.pageCards(pageNo)}
+          </div>
+        </center>);
     }
 
     return pages;
