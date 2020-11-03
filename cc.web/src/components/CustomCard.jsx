@@ -9,7 +9,7 @@ function CustomCard(props) {
   const showProductDetail = () => props.history.push(`/productDetails?_id=${get(product,'_id', '')}`);
   return (
     <Card style={{
-      margin: '20px',
+      margin: '10px 20px',
       maxWidth: '250px',
       height: '315px',
       padding: '15px'

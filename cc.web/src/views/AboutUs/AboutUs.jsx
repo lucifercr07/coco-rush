@@ -10,17 +10,21 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Amatic SC',
     position: 'relative',
     padding: theme.spacing(2),
-    backgroundColor: theme.palette.grey[800],
-    color: theme.palette.common.white,
-    marginTop: theme.spacing(15),
-    marginRight: theme.spacing(10),
-    marginLeft: theme.spacing(10),
-    marginBottom: theme.spacing(10),
+    backgroundColor: '#654321',
+    color: 'white',
+    marginTop: theme.spacing(2),
+    marginRight: theme.spacing(2),
+    marginLeft: theme.spacing(2),
+    marginBottom: theme.spacing(2),
     // backgroundImage: 'url(https://source.unsplash.com/random)',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     textAlign: 'center',
+    [theme.breakpoints.up('md')]: {
+      fontSize: '30px',
+      margin: theme.spacing(5),
+    },
   },
   overlay: {
     position: 'absolute',
@@ -28,12 +32,15 @@ const useStyles = makeStyles((theme) => ({
     bottom: 0,
     right: 0,
     left: 0,
-    backgroundColor: 'rgba(0,0,0,.3)',
     textAlign: 'center',
   },
   aboutUsContent: {
-    padding: theme.spacing(5),
-    fontSize: '30px',
+    padding: theme.spacing(1),
+    [theme.breakpoints.up('md')]: {
+      fontSize: '30px',
+      padding: theme.spacing(3),
+    },
+
   },
 }));
 

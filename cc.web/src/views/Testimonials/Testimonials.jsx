@@ -27,7 +27,7 @@ function Item(props) {
             fontFamily: "'Amatic SC', cursive",
             backgroundColor: '#654321',
             color: 'white',
-            margin: '10px'
+            margin: '0px 10px'
           }}>
             <div>
               <img src="profile.jpg" alt="..." style={{

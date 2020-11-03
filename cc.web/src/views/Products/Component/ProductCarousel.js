@@ -24,8 +24,8 @@ class ProductCarousel extends React.Component {
       slidesToScroll: get(this.props, 'products', []).length > 3 ? 3 : get(this.props, 'products', []).length,
       initialSlide: 0,
       responsive: [{ breakpoint: 1024, settings: { slidesToShow: size >= 3 ? 3 : size, slidesToScroll: 3 } },
-      { breakpoint: 600, settings: { slidesToShow: size >= 2 ? 2 : size, slidesToScroll: 2 } },
-      { breakpoint: 480, settings: { slidesToShow: 1, slidesToScroll: 1 } }]
+      { breakpoint: 820, settings: { slidesToShow: size >= 2 ? 2 : size, slidesToScroll: 2 } },
+      { breakpoint: 572, settings: { slidesToShow: 1, slidesToScroll: 1 } }]
     };
     return (
       <Carousel {...settings} >
