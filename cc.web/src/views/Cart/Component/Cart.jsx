@@ -13,16 +13,13 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     padding: theme.spacing(2),
+    fontFamily: 'Amatic SC',
   },
   paper: {
-    // padding: theme.spacing(1),
-    // textAlign: 'center',
+    padding: '10px 20px',
   },
   img: {
-    // margin: 'auto',
-    // display: 'block',
     maxWidth: '100%',
-    // maxHeight: '100%',
   },
   productRow: {
     borderBottom: '1px solid',
@@ -32,22 +29,21 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   productItem: {
-    // flexGrow: 1,
-    padding: '16px 0px'
+    padding: '20px 0px'
   },
 }));
 
 const cartItems = [
   {
     _id: 231231312,
-    title: 'Chocolate Name a really really long name',
+    title: 'Chocolate Name',
     price: 322,
     quantity: 1,
     img: "chocolate.jpg"
   },
   {
     _id: 89211312,
-    title: 'Oreo Truffel and another long name',
+    title: 'Oreo Truffel',
     price: 123,
     quantity: 6,
     img: "chocolate3.jpg"
@@ -75,6 +71,13 @@ const cartItems = [
   },
 ]
 
+function ProductImage(props) {
+  const classes = useStyles();
+  return <ButtonBase className={classes.image}>
+    <img className={classes.img} alt="chololate" src={props.imageSrc} />
+  </ButtonBase>
+}
+
 function CartRow(props) {
   const classes = useStyles();
 
@@ -83,44 +86,47 @@ function CartRow(props) {
       <div className={classes.productItem}>
         <Grid container>
           <Grid item xs={4} sm={2} >
-            <ButtonBase className={classes.image}>
-              <img className={classes.img} alt="chololate" src={props.product.img} />
-            </ButtonBase>
+            <ProductImage imageSrc={props.product.img} />
           </Grid>
           <Grid item xs={8} sm={8} container>
-            <Grid item xs={12} container direction="column" style={{ padding: '0px 10px' }}>
-              <Grid item xs={12} sm={12}>
-                <h5 style={{ fontWeight: 300 }}>{props.product.title}</h5>
+            <Grid item xs={12} container direction="row" spacing={0} style={{ padding: '0px 10px' }}>
+              <Grid item xs={12}>
+                <h2 style={{ fontWeight: 300, width: '100%' }}>{props.product.title}</h2>
+                <br />
               </Grid>
-              <Grid item xs={12} sm={4}>
-                <Form.Group>
-                  <InputGroup size='sm'>
-                    <InputGroup.Prepend className="quanity-width">
-                      <Button variant="outlined" fullWidth={true} className="quanity-button" >
-                        < RemoveIcon />
-                      </Button>
-                    </InputGroup.Prepend>
-                    <Form.Control
-                      type="text"
-                      placeholder="QTY"
-                      value={props.product.quantity}
-                      className="quanity-input"
-                    />
-                    <InputGroup.Append className="quanity-width">
-                      <Button variant="outlined" fullWidth={true} className="quanity-button" >
-                        < AddIcon />
-                      </Button>
-                    </InputGroup.Append>
-                  </InputGroup>
-                </Form.Group>
+              <Grid item xs={12}>
+                <Grid item xs={12} sm={4}>
+                  <Form.Group>
+                    <InputGroup size="sm">
+                      <InputGroup.Prepend className="quanity-width">
+                        <button variant="outlined" className="quanity-button" >
+                          < RemoveIcon />
+                        </button>
+                      </InputGroup.Prepend>
+                      <Form.Control
+                        type="text"
+                        placeholder="QTY"
+                        value={props.product.quantity}
+                        className="quanity-input"
+                      />
+                      <InputGroup.Append className="quanity-width">
+                        <button variant="outlined" className="quanity-button" >
+                          < AddIcon />
+                        </button>
+                      </InputGroup.Append>
+                    </InputGroup>
+                  </Form.Group>
+                </Grid>
               </Grid>
-              <Grid item xs={12} sm={4}>
-                <Button variant="outlined" fullWidth={true} className="cart-button">Remove</Button>
+              <Grid item xs={12}>
+                <Grid item xs={12} sm={4}>
+                  <Button variant="contained" fullWidth={true} size="small" className="remove-button">Remove</Button>
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={12} sm={2} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', padding:'10px 0px 0px' }} >
-            <h5 style={{ fontWeight: 500 }}>{INR_SYMBOL} {props.product.price * props.product.quantity}</h5>
+          <Grid item xs={12} sm={2} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', padding: '10px 10px 0px 0px' }} >
+            <h5 style={{ fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif', fontWeight: 800, color: '#654321' }}>{INR_SYMBOL} {props.product.price * props.product.quantity}</h5>
           </Grid>
         </Grid>
       </div>
@@ -133,12 +139,12 @@ export default function Cart(props) {
   return (
     <Layout {...props}>
       <div className={classes.root}>
-        <Grid container spacing={3} direction="row">
-          <Grid item xs={12}>
-            <h2>Shopping Cart</h2>
+        <Grid container spacing={3} direction="row" justify="center">
+          <Grid item xs={12} md={11}>
+            <h1 style={{ fontWeight: 900 }}>Shopping Cart</h1>
           </Grid>
-          <Grid item xs={12} md={8}>
-            <Paper className={classes.paper} style={{ padding: '0px 10px' }}>
+          <Grid item xs={12} md={7}>
+            <Paper className={classes.paper} elevation={3}>
               <table style={{ width: '100%' }}>
                 <tbody>
                   {cartItems.map(item => (

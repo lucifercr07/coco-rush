@@ -1,0 +1,49 @@
+.cart-font{
+  font-family: 'Amatic SC';
+}
+
+.cart-table{
+  background-color: (#c58c4a, 0.5) !important;
+  padding: '10px 20px' !important;
+}
+
+.quanity-width{
+  width: 30%
+}
+
+.quanity-button{
+  background-color: rgba(#c58c4a, 0.75) !important;
+  border-radius: 0px ;
+  outline: none ;
+  width:100%;
+  border: 0;
+  color: white;
+}
+
+.remove-button{
+  background-color: #654321 !important;
+  border-radius: 0px !important;
+  color: white !important;
+}
+
+.quanity-input {
+  border: 1px solid rgba(#c58c4a, 0.75) !important;
+  color:rgb(87, 87, 87);
+  background-color: transparent;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  border-radius: 0px;
+  text-align: center;
+}
+
+.quanity-input::placeholder {
+  color: #f5d7b9
+}
+
+.quanity-input:focus {
+  border: 1px solid rgba(#c58c4a, 0.75);
+  background-color: transparent;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  border-radius: 0px;
+  text-align: center;
+  color:rgb(87, 87, 87);
+}
