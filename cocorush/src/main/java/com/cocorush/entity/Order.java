@@ -27,6 +27,7 @@ public class Order {
 
 	private Address address;
 
+	@NotNull
 	private List<Product> itemList;
 
 	private Long orderTimeStamp;
@@ -43,6 +44,10 @@ public class Order {
 	@NotBlank(message = "Email address is mandatory")
 	@Email
 	private String emailAddress;
+	
+	private String promoCode;
+	
+	private String description;
 
 	public String getId() {
 		return id;
@@ -119,5 +124,21 @@ public class Order {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public String getPromoCode() {
+		return promoCode;
+	}
+
+	public void setPromoCode(String promoCode) {
+		this.promoCode = promoCode;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

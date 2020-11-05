@@ -11,8 +11,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,12 +38,14 @@ public class ProductController {
 	@Autowired
 	ProductService productService;
 
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("/product")
 	public Product createProduct(@Valid @RequestBody Product item) {
 		Product response = productService.createProduct(item);
 		return response;
 	}
 
+	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping("/product")
 	public @ResponseBody List<Product> getProducts(@RequestParam(required = false) List<String> category,
 			@RequestParam(required = false) Boolean featured) {
