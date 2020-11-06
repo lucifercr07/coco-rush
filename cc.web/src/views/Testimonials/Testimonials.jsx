@@ -1,9 +1,19 @@
 import React from 'react';
-import Carousel from 'react-material-ui-carousel';
+import Carousel from "react-slick";
 import { Paper } from '@material-ui/core'
 import Grid from "@material-ui/core/Grid";
 import Rating from '@material-ui/lab/Rating';
 import './style.scss';
+
+
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true
+};
 
 function Item(props) {
   return (
@@ -15,8 +25,9 @@ function Item(props) {
           <Paper elevation={3} style={{
             padding: '30px',
             fontFamily: "'Amatic SC', cursive",
-            backgroundColor:'#654321',
-            color: 'white'
+            backgroundColor: '#654321',
+            color: 'white',
+            margin: '0px 10px'
           }}>
             <div>
               <img src="profile.jpg" alt="..." style={{
@@ -25,9 +36,9 @@ function Item(props) {
                 width: '100%',
                 margin: "0 auto",
                 transform: "translate3d(0, -70%, 0)",
-                verticalAlign:'middle'
+                verticalAlign: 'middle'
               }} />
-              <div style={{marginTop : '-110px'}} >
+              <div style={{ marginTop: '-110px' }} >
                 <h3 style={{
                   marginTop: "30px",
                   minHeight: "32px",
@@ -47,7 +58,7 @@ function Item(props) {
 function Testimonials(props) {
   const { items } = props;
   return (
-    <Carousel>
+    <Carousel {...settings}>
       {
         items.map((item, i) => <Item key={i} item={item} />)
       }
