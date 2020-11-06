@@ -7,56 +7,6 @@
   padding: '10px 20px' !important;
 }
 
-.quanity-width{
-  width: 30%
-}
-
-.primary-button{
-  background-color: #654321 !important;
-  border-radius: 0px !important;
-  outline: none !important;
-  width:100%;
-  border: 0 !important;
-  color: white !important;
-  box-shadow: none !important;
-  font-weight: bold !important;
-  letter-spacing: 2px !important;
-}
-
-.secondary-button{
-  background-color: rgba(#c58c4a, 0.75) !important;
-  border-radius: 0px !important;
-  width:100%;
-  box-shadow: none !important;
-  color: white !important;
-  font-weight: bold !important;
-  letter-spacing: 2px !important;
-  outline: none !important;
-
-}
-
-.quanity-input {
-  border: 1px solid  #654321 !important;
-  color:rgb(87, 87, 87);
-  background-color: transparent;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  border-radius: 0px;
-  text-align: center;
-}
-
-.quanity-input::placeholder {
-  color: #f5d7b9
-}
-
-.quanity-input:focus {
-  border: 1px solid  #654321;
-  background-color: transparent;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  border-radius: 0px;
-  text-align: center;
-  color:rgb(87, 87, 87);
-}
-
 .summaryTable td{
   font-weight: 450;
   font-size: 25px;
@@ -77,4 +27,27 @@
 
 .summaryTable tr:nth-last-child(2){
   border-bottom: 1px solid lightgray;
+}
+
+.secondary-button{
+  background-color: rgba(#c58c4a, 0.75) !important;
+  border-radius: 0px !important;
+  width:100%;
+  box-shadow: none !important;
+  color: white !important;
+  font-weight: bold !important;
+  letter-spacing: 2px !important;
+  outline: none !important;
+}
+
+.primary-button{
+  background-color: #654321 !important;
+  border-radius: 0px !important;
+  outline: none !important;
+  width:100%;
+  border: 0 !important;
+  color: white !important;
+  box-shadow: none !important;
+  font-weight: bold !important;
+  letter-spacing: 2px !important;
 }

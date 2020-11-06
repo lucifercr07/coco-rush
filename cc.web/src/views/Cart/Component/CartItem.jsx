@@ -3,7 +3,7 @@ import { Grid, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import { INR_SYMBOL } from '../../../constants';
-import Quantity from './Quantity';
+import { Quantity } from '../../../components';
 import './style.scss';
 
 const useStyles = makeStyles((theme) => ({
@@ -29,21 +29,19 @@ function ProductImage(props) {
 	</ButtonBase>
 }
 
-function ProductDetails(props) {
+function ItemDetails(props) {
 	return <Grid item xs={12} container direction="row" spacing={0} style={{ padding: '0px 10px' }}>
 		<Grid item xs={12}>
 			<h2 style={{ fontWeight: '500', width: '100%' }}>{props.product.title}</h2>
 		</Grid>
 		<Grid item xs={12}>
 			<Grid item xs={12} sm={4}>
-				<Quantity product={props.product} />
+				<Quantity product={props.product} type="dark" />
 			</Grid>
 		</Grid>
 		<Grid item xs={12}>
 			<Grid item xs={12} sm={4}>
-				<Button variant="contained" fullWidth={true} size="small" className="secondary-button">
-					Remove
-        </Button>
+				<Button variant="contained" fullWidth={true} size="small" className="secondary-button">Remove</Button>
 			</Grid>
 		</Grid>
 	</Grid>
@@ -58,7 +56,7 @@ export default function CartItem(props) {
 					<ProductImage imageSrc={props.product.img} />
 				</Grid>
 				<Grid item xs={8} sm={8} container>
-					<ProductDetails product={props.product} />
+					<ItemDetails product={props.product} />
 				</Grid>
 				<Grid item xs={12} sm={2} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', padding: '10px 10px 0px 0px' }} >
 					<h5 style={{ fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif', fontWeight: 800, color: '#654321' }}>

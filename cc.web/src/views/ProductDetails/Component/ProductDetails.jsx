@@ -5,7 +5,7 @@ import RemoveIcon from '@material-ui/icons/Remove';
 import { Form, InputGroup } from 'react-bootstrap'
 import { INR_SYMBOL } from '../../../constants'
 import './style.scss';
-import { Layout } from '../../../components'
+import { Layout, Quantity } from '../../../components'
 import Grid from '@material-ui/core/Grid';
 
 class ProductDetails extends React.Component {
@@ -33,26 +33,7 @@ class ProductDetails extends React.Component {
                 </div>
                 <p>The preferred choice of a vast range of chocolate lovers. Creamy nutty and what not!!! The preferred choice of a vast range of chocolate lovers. Creamy nutty and what not!!!The preferred choice of a vast range of chocolate lovers. Creamy nutty and what not!!!</p>
                 <br />
-                <Form.Group>
-                  <InputGroup>
-                    <InputGroup.Prepend className="quanity-width">
-                      <Button variant="contained" fullWidth={true} className="quanity-button" >
-                        < RemoveIcon />
-                      </Button>
-                    </InputGroup.Prepend>
-                    <Form.Control
-                      type="text"
-                      placeholder="QTY"
-                      value={1}
-                      className="quanity-input"
-                    />
-                    <InputGroup.Append className="quanity-width">
-                      <Button variant="contained" fullWidth={true} className="quanity-button" >
-                        < AddIcon />
-                      </Button>
-                    </InputGroup.Append>
-                  </InputGroup>
-                </Form.Group>
+                <Quantity {...this.props} type="light" />
                 <Button variant="contained" fullWidth={true} className="cart-button">Add to cart</Button>
               </Paper>
             </Grid>
