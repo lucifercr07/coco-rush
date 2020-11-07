@@ -38,6 +38,7 @@ public class JwtUtils {
 
 	public boolean validateJwtToken(String authToken) {
 		try {
+			logger.info("Validating authToken");
 			Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(authToken);
 			return true;
 		} catch (SignatureException e) {
@@ -52,6 +53,7 @@ public class JwtUtils {
 			logger.error("JWT claims string is empty: {}", e.getMessage());
 		}
 
+		logger.info("Validation failed");
 		return false;
 	}
 }

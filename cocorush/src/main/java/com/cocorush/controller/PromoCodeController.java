@@ -1,7 +1,6 @@
 package com.cocorush.controller;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
@@ -15,78 +14,60 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cocorush.service.ProductService;
-import com.cocorush.entity.Product;
-import com.cocorush.exception.ProductNotFoundException;
+import com.cocorush.entity.PromoCode;
+import com.cocorush.service.PromoCodeService;
 
 @RestController
-public class ProductController {
-
-	private final static Logger logger = LoggerFactory.getLogger(ProductController.class);
+public class PromoCodeController {
+	private final static Logger logger = LoggerFactory.getLogger(PromoCodeController.class);
 
 	@Autowired
-	ProductService productService;
+	PromoCodeService promoCodeService;
 
 	@CrossOrigin(origins = "http://localhost:3000")
-	@PostMapping("/product")
+	@PostMapping("/promocode")
 	@PreAuthorize("hasRole('ADMIN')")
-	public Product createProduct(@Valid @RequestBody Product item) {
-		Product response = productService.createProduct(item);
+	public PromoCode createPromoCode(@Valid @RequestBody PromoCode promoCodeObject) {
+		PromoCode response = promoCodeService.createPromoCode(promoCodeObject);
 		return response;
 	}
 
 	@CrossOrigin(origins = "http://localhost:3000")
-	@GetMapping("/product")
-	public @ResponseBody List<Product> getProducts(@RequestParam(required = false) List<String> category,
-			@RequestParam(required = false) Boolean featured) {
-		if (category != null && category.size() != 0) {
-			logger.info("Category query params received: " + category.toString());
-			return productService.findProductByCategoryName(category);
-		}
-
-		if (featured == null) {
-			logger.info("No features mentioned, getting all products.");
-			return productService.getProducts();
-		}
-
-		if (featured) {
-			return productService.findFeaturedProducts(true);
-		}
-
-		return productService.findFeaturedProducts(false);
-	}
-
-	@GetMapping(value = "/product/{id}")
-	public ResponseEntity<?> getProduct(@PathVariable String id) {
-		if (id == null) {
+	@GetMapping("/promocode")
+	public @ResponseBody ResponseEntity<Object> getPromoCode(@RequestParam(required = true) String code) {
+		if (code == null) {
+			logger.info("No promocode specified");
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
 
-		Product item = productService.findProductById(id).orElseThrow(() -> new ProductNotFoundException());
-		return ResponseEntity.ok(item);
+		logger.info("PromoCode query params received: " + code);
+		PromoCode responsePromoCode = promoCodeService.findPromoCode(code);
+		return ResponseEntity.ok(responsePromoCode);
 	}
 
-	@PutMapping(value = "product/{id}")
+	@CrossOrigin(origins = "http://localhost:3000")
+	@DeleteMapping("/promocode/{code}")
 	@PreAuthorize("hasRole('ADMIN')")
-	public ResponseEntity<?> updateProduct(@PathVariable String id, @Valid @RequestBody Product updatedItem) {
-		if (id == null) {
+	public @ResponseBody ResponseEntity<Object> removePromoCode(@PathVariable String code) {
+		if (code == null) {
+			logger.info("No promocode specified");
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
 
-		Product item = productService.findProductById(id).orElseThrow(() -> new ProductNotFoundException());
-		Product response = productService.updateProduct(updatedItem);
-		return ResponseEntity.ok(response);
+		logger.info("PromoCode query params received: " + code);
+		promoCodeService.deletePromoCode(code);
+		return ResponseEntity.ok("PromoCode removed successfully");
 	}
 
 	@ResponseStatus(HttpStatus.BAD_REQUEST)

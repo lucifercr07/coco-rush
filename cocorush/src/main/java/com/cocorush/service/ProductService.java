@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cocorush.controller.ProductController;
 import com.cocorush.entity.Product;
 import com.cocorush.repository.ProductRepository;
 

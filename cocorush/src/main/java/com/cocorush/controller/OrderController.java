@@ -30,7 +30,7 @@ import com.cocorush.exception.OrderNotFoundException;
 
 @RestController
 public class OrderController {
-	
+
 	private final static Logger logger = LoggerFactory.getLogger(OrderController.class);
 
 	@Autowired
@@ -62,18 +62,20 @@ public class OrderController {
 		return ResponseEntity.ok(order);
 	}
 
-	@PutMapping(value = "/order/{id}")
-	@PreAuthorize("hasRole('ADMIN')")
-	public ResponseEntity<?> updateOrder(@PathVariable String id, @Valid @RequestBody Order updatedOrder) {
-		if (id == null) {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-		}
+// Remove only when order editing is allowed, which will never be ;D
+//	@PutMapping(value = "/order/{id}")
+//	@PreAuthorize("hasRole('ADMIN')")
+//	public ResponseEntity<?> updateOrder(@PathVariable String id, @Valid @RequestBody Order updatedOrder) {
+//		if (id == null) {
+//			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+//		}
+//
+//		Order order = orderService.findOrderById(id).orElseThrow(() -> new OrderNotFoundException());
+//		Order response = orderService.createOrder(order);
+//		return ResponseEntity.ok(response);
+//	}
+//	
 
-		Order order = orderService.findOrderById(id).orElseThrow(() -> new OrderNotFoundException());
-		Order response = orderService.createOrder(order);
-		return ResponseEntity.ok(response);
-	}
-	
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> handleValidationExceptions(MethodArgumentNotValidException ex) {
