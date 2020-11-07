@@ -65,7 +65,7 @@ function CartActions(props) {
       <PromoCode {...props} />
     </Grid>
     <Grid item xs={12} style={{ padding: '20px 0px 10px 0px' }}>
-      <Button variant="contained" fullWidth={true} className="secondary-button">Continue Shopping</Button>
+      <Button variant="contained" fullWidth={true} onClick={() => props.history.push('/products')} className="secondary-button">Continue Shopping</Button>
     </Grid>
     <Grid item xs={12} style={{ paddingBottom: '10px' }}>
       <Button variant="contained" fullWidth={true} className="primary-button">Proceed to checkout</Button>
@@ -74,16 +74,16 @@ function CartActions(props) {
 }
 
 function CartTable(props) {
-	const classes = useStyles();
-	return <table style={{ width: '100%' }}>
-		<tbody>
-			{props.cartItems.map(item => (
-				<tr key={item._id} className={classes.productRow}>
-					<CartItem product={item} />
-				</tr>
-			))}
-		</tbody>
-	</table>
+  const classes = useStyles();
+  return <table style={{ width: '100%' }}>
+    <tbody>
+      {props.cartItems.map(item => (
+        <tr key={item._id} className={classes.productRow}>
+          <CartItem product={item} />
+        </tr>
+      ))}
+    </tbody>
+  </table>
 }
 
 export default function Cart(props) {
@@ -112,7 +112,7 @@ export default function Cart(props) {
                 <Grid item xs={12}>
                   <SummaryTable cartItems={cartItems} {...props} />
                 </Grid>
-                <CartActions />
+                <CartActions {...props} />
               </Grid>
             </Paper>
           </Grid>
