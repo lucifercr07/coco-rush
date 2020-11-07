@@ -26,6 +26,7 @@ public class Product {
 	private String dimension;
 	private List<String> productImageIds;
 	private boolean featured;
+	private String description;
 	
 	public String getId() {
 		return id;
@@ -102,5 +103,13 @@ public class Product {
 	@Override
 	public String toString() {
 		return "Product [name=" + name + ", isFeatured=" + featured + ", unitPrice=" + unitPrice + "]";
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

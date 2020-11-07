@@ -9,8 +9,10 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,23 +36,23 @@ public class OrderController {
 	@Autowired
 	OrderService orderService;
 
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("/order")
+	@PreAuthorize("hasRole('ADMIN')")
 	public Order createOrder(@Valid @RequestBody Order order) {
 		logger.info("Order is: " + order.toString());
 		Order response = orderService.createOrder(order);
-		// If order created successfully send email to both admin and user
-		if (response != null) {
-			
-		}
 		return response;
 	}
 
 	@GetMapping("/order")
+	@PreAuthorize("hasRole('ADMIN')")
 	public List<Order> getAllOrders() {
 		return orderService.getAllOrders();
 	}
 
 	@GetMapping(value = "/order/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<?> getOrder(@PathVariable String id) {
 		if (id == null) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
@@ -61,6 +63,7 @@ public class OrderController {
 	}
 
 	@PutMapping(value = "/order/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<?> updateOrder(@PathVariable String id, @Valid @RequestBody Order updatedOrder) {
 		if (id == null) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
