@@ -125,7 +125,8 @@ const TESTIMONIALS = [
 const INSTAGRAM_URL = 'https://www.instagram.com/thecocorush/',
   FACEBOOK_URL = 'https://www.facebook.com/thecocorush',
   INR_SYMBOL = '₹',
-  BASE_URL = 'http://localhost:8080'
+  BASE_URL = 'http://localhost:8080',
+  CATEGORIES = ['nutties', 'truffle', 'bars', 'special', 'baskets', 'hampers', 'chocolate beans']
 
 export {
   NO_DELIVERY_POSTAL_CODES,
@@ -137,4 +138,5 @@ export {
   INR_SYMBOL,
   BASE_URL,
   TESTIMONIALS,
+  CATEGORIES,
 };

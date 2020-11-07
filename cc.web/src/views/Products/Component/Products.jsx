@@ -4,8 +4,7 @@ import { Container, Grid } from '@material-ui/core';
 import { Layout } from '../../../components';
 import ProductCarousel from './ProductCarousel';
 import './style.scss';
-
-const categories = ['nutties', 'truffle', 'bars', 'special', 'baskets', 'hampers', 'chocolate beans'];
+import {CATEGORIES} from '../../../constants';
 
 class Products extends React.Component {
   componentWillMount() {
@@ -29,7 +28,7 @@ class Products extends React.Component {
       <Layout {...this.props}>
         <Container maxWidth="lg">
           <br/>
-          {categories.map((category, index) => !isEmpty(productsByCategory[category]) ?
+          {CATEGORIES.map((category, index) => !isEmpty(productsByCategory[category]) ?
 
                 <div className="cardFont" key={index}>
                   <div className="" >
