@@ -66,14 +66,16 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       background: "#87592c",
     },
-    stepIcon: {
-      color: "red !important",
-      backgroundColor: "#654321",
-    },
     root: {
       width: "90%"
     },
   },
+  active: {
+    color: '#654321 !important',
+  },
+  completed: {
+    color: '#654321 !important',
+  }
 }));
 
 const steps = ['Shipping address', 'Order Details', 'Payment details'];
@@ -170,15 +172,13 @@ export default function Checkout(props) {
               {steps.map((label) => (
                 <Step key={label}>
                   <StepLabel StepIconProps={{
-                    classes: { 
-                      root: classes.stepIcon,
-                      completed: classes.stepIcon,
-                      active: classes.stepIcon,
-                      disabled: classes.stepIcon
+                    classes: {
+                      completed: classes.completed,
+                      active: classes.active,
                     }
                   }}>
                     {label}
-                </StepLabel>
+                  </StepLabel>
                 </Step>
               ))}
             </Stepper>

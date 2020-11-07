@@ -1,0 +1,67 @@
+.quantity-width {
+	width: 30%;
+}
+
+.quantity-button{
+  border-radius: 0px !important;
+	outline: none !important;
+	width:100%;
+	border: 0 !important;
+	box-shadow: none !important;
+	font-weight: bold !important;
+	letter-spacing: 2px !important;
+}
+
+.quantity-input {
+	background-color: transparent !important;
+	font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+	border-radius: 0px;
+	text-align: center;
+}
+
+.dark-button{
+	background-color: #654321 !important;
+	color: white !important;
+}
+
+.dark-input{
+	border: 1px solid  #654321 !important;
+	color:rgb(87, 87, 87) !important;
+}
+
+.dark-input::placeholder {
+	color: #f5d7b9 !important;
+}
+
+.dark-input:focus {
+	border: 1px solid  #654321;
+	background-color: transparent !important;
+	font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+	border-radius: 0px;
+	text-align: center;
+	color:'white' !important;
+}
+
+.light-button{
+	background-color: 'white' !important;
+	color: #654321 !important;
+}
+
+.light-input{
+	border: 1px solid  'white' !important;
+	color: #ffff !important;
+
+}
+
+.light-input::placeholder {
+	color: #f5d7b9;
+}
+
+.light-input:focus {
+	border: 1px solid 'white';
+	background-color: transparent !important;
+	font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+	border-radius: 0px;
+	text-align: center;
+	color: #ffff !important;
+}
