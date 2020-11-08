@@ -3,7 +3,7 @@ import { Button } from '@material-ui/core';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { INR_SYMBOL } from '../../../constants'
 import './style.scss';
-import { Quantity } from '../../../components'
+import { Quantity, Discount } from '../../../components'
 import Grid from '@material-ui/core/Grid';
 
 function HeartIcon() {
@@ -27,7 +27,7 @@ function Description(props) {
 
 function Price(props) {
 	return <div className="descriptionElement price">
-		<span>{INR_SYMBOL} </span>{props.unitPrice || '123'}
+			<Discount newPrice={123} oldPrice={345} percentOff={50} context="product" />
 	</div>
 }
 

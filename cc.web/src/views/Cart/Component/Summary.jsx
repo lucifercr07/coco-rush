@@ -1,5 +1,6 @@
 import React from 'react';
 import { INR_SYMBOL } from '../../../constants';
+import { Discount } from '../../../components';
 import './style.scss';
 
 export default function Summary(props) {
@@ -26,11 +27,13 @@ export default function Summary(props) {
 			</tr>
 			<tr>
 				<td>Shipping Charges</td>
-				<td>{INR_SYMBOL} {shipping}</td>
+				<td>{shipping === 0 ? 'Free Shipping' : `${INR_SYMBOL} ${shipping}`}</td>
 			</tr>
 			<tr>
 				<td style={{ fontWeight: 'bold', fontSize: '30px' }}>Total</td>
-				<td style={{ fontWeight: 'bold', fontSize: '18px' }}>{INR_SYMBOL} {total}</td>
+				<td style={{ fontWeight: 'bold', fontSize: '18px' }}>
+					<Discount newPrice={total} oldPrice={9344} percentOff={50} context="summary"/>
+				</td>
 			</tr>
 		</tbody>
 	</table>
