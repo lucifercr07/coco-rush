@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button } from '@material-ui/core';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import { INR_SYMBOL } from '../../../constants'
 import './style.scss';
 import { Quantity, Discount } from '../../../components'
 import Grid from '@material-ui/core/Grid';
@@ -27,7 +26,7 @@ function Description(props) {
 
 function Price(props) {
 	return <div className="descriptionElement price">
-			<Discount newPrice={123} oldPrice={345} percentOff={50} type="dark" />
+		<Discount newPrice={123} oldPrice={0} percentOff={0} type="dark" />
 	</div>
 }
 
