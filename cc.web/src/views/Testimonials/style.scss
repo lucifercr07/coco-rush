@@ -5,8 +5,36 @@
     margin-bottom: 10px;
     background-color: #654321;
     color: white;
-    font-family: 'Amatic SC', cursive;
+    font-family: "Amatic SC", cursive;
     max-height: 300px;
+}
+
+.testimonial-paper {
+    padding: 30px;
+    background-color: #654321 !important;
+    color: #ffff !important;
+    margin: 0px 10px;
+}
+
+.testimonial-paper h3 {
+    margin-top: 30px;
+    min-height: 32px;
+    font-weight: bold;
+    font-family: "Amatic SC", cursive;
+}
+
+.testimonial-paper img {
+    border-radius: 50%;
+    max-width: 140px;
+    width: 100%;
+    margin: 0 auto;
+    transform: translate3d(0, -70%, 0);
+    vertical-align: middle;
+}
+
+.testimonial-paper p {
+    font-family: "Montserrat", sans-serif;
+    font-weight: lighter;
 }
 
 @import "../../styles/plugin-react-slick.scss";
