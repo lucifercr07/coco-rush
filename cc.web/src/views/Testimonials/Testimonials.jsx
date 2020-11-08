@@ -17,9 +17,7 @@ const settings = {
 
 function Item(props) {
   return (
-    <div style={{
-      marginTop: "70px"
-    }}>
+    <div style={{ marginTop: "70px" }}>
       <Grid container justify="center">
         <Grid item xs={12} >
           <Paper elevation={3} className="testimonial-paper">

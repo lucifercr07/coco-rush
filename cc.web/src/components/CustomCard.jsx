@@ -12,11 +12,7 @@ function CustomCard(props) {
       <Card.Img variant="top" src="chocolate.jpg" />
       <Card.Body style={{ wordWrap: 'wrap' }}>
         <Card.Title><h4>{get(product, 'name', 'No title')}</h4></Card.Title>
-        <Card.Text>
-          <p>{INR_SYMBOL}
-            <span> {get(product, 'unitPrice', 'Price not defined')}</span>
-          </p>
-        </Card.Text>
+        <Card.Text>{INR_SYMBOL} <span> {get(product, 'unitPrice', 'Price not defined')}</span> </Card.Text>
       </Card.Body>
     </Card>
   )

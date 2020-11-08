@@ -32,8 +32,8 @@ function Price(props) {
 }
 
 function Actions(props) {
-	return <div className="descriptionElement price">
-		<Grid container spacing={2} alignItems="center" justify="center">
+	return <div className="descriptionElement">
+		<Grid container alignItems="center" justify="center">
 			<Grid item xs={12} md={10}>
 				<Quantity {...props} type="light" />
 			</Grid>
