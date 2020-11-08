@@ -27,7 +27,7 @@ function Description(props) {
 
 function Price(props) {
 	return <div className="descriptionElement price">
-			<Discount newPrice={123} oldPrice={345} percentOff={50} context="product" />
+			<Discount newPrice={123} oldPrice={345} percentOff={50} type="dark" />
 	</div>
 }
 

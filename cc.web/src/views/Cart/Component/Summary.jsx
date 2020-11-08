@@ -32,7 +32,7 @@ export default function Summary(props) {
 			<tr>
 				<td style={{ fontWeight: 'bold', fontSize: '30px' }}>Total</td>
 				<td style={{ fontWeight: 'bold', fontSize: '18px' }}>
-					<Discount newPrice={total} oldPrice={9344} percentOff={50} context="summary"/>
+					<Discount newPrice={total} oldPrice={9344} percentOff={50} type="light"/>
 				</td>
 			</tr>
 		</tbody>
