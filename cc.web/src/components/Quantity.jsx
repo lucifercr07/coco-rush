@@ -10,7 +10,7 @@ export default function Quantity(props) {
 	const buttonClassName = `quantity-button ${type}-button`;
 	const inputClassName = `quantity-input ${type}-input`;
 	return <Form.Group>
-		<InputGroup size="sm">
+		<InputGroup size={props.size}>
 			<InputGroup.Prepend className="quantity-width">
 				<button className={buttonClassName} >
 					< RemoveIcon />

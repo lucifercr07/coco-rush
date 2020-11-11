@@ -1,0 +1,33 @@
+.discount {
+    display: inline-block;
+}
+
+.discount.old-price {
+    text-decoration: line-through;
+}
+
+.old-price.light{
+    color: gray;
+}
+
+.old-price.dark {
+    color: lightgray;
+}
+
+.discount.percent {
+    padding: 5px 10px;
+    font-size: small;
+    border-radius: 12px;
+    color: #ffff;
+}
+
+.percent.light{
+    background-color: rgba(197, 140, 74, 0.75);
+    letter-spacing: 2px;
+}
+
+.percent.dark{
+    background-color: #654321;
+}
+
+
