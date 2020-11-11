@@ -36,7 +36,7 @@ function ItemDetails(props) {
 		</Grid>
 		<Grid item xs={12}>
 			<Grid item xs={12} sm={4}>
-				<Quantity product={props.product} type="dark" />
+				<Quantity product={props.product} type="dark" size="sm" />
 			</Grid>
 		</Grid>
 		<Grid item xs={12}>

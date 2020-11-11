@@ -1,18 +1,22 @@
-.cardStyle {
-  flex: 1;
-  margin: 30px;
-  
+.card-style {
+  margin: 10px 20px;
+  max-width: 250px;
+  height: 315px;
+  padding: 15px;
   cursor: pointer;
-  min-width: 200px;
-  max-width: 300px;
 }
-  
-@media (max-width:700px) {
-  .cardStyle {
-    // flex: 33%;
-    margin: 30px;
-    border-radius: 30px;
-    width: 100%;
-  }
+
+.card-style img {
+  width: 100%;
+  overflow: hidden;
+  height: 200px;
 }
-  
+
+.card-style h4 {
+  font-weight: bold;
+  font-family: "Amatic SC";
+}
+
+.card-style p {
+  font-family: "Montserrat", sans-serif;
+}

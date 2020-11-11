@@ -17,33 +17,14 @@ const settings = {
 
 function Item(props) {
   return (
-    <div style={{
-      marginTop: "70px"
-    }}>
+    <div style={{ marginTop: "70px" }}>
       <Grid container justify="center">
         <Grid item xs={12} >
-          <Paper elevation={3} style={{
-            padding: '30px',
-            fontFamily: "'Amatic SC', cursive",
-            backgroundColor: '#654321',
-            color: 'white',
-            margin: '0px 10px'
-          }}>
+          <Paper elevation={3} className="testimonial-paper">
             <div>
-              <img src="profile.jpg" alt="..." style={{
-                borderRadius: "50%",
-                maxWidth: '140px',
-                width: '100%',
-                margin: "0 auto",
-                transform: "translate3d(0, -70%, 0)",
-                verticalAlign: 'middle'
-              }} />
+              <img src="profile.jpg" alt="..." />
               <div style={{ marginTop: '-110px' }} >
-                <h3 style={{
-                  marginTop: "30px",
-                  minHeight: "32px",
-                  fontWeight: 'bold'
-                }}>{props.item.name}</h3>
+                <h3>{props.item.name}</h3>
                 <Rating name="read-only" value={props.item.rating} readOnly />
                 <p>{props.item.description}</p>
               </div>
