@@ -13,20 +13,20 @@ function HeartIcon() {
 
 function ProductName(props) {
 	return <div className="descriptionElement">
-		<h1>{props.name || 'Chocolate Name'}</h1>
+		<h1>{props.product.name || 'Chocolate Name'}</h1>
 	</div>
 }
 
 function Description(props) {
 	return <div className="descriptionElement">
-		<p>{props.description || 'Randomest one liner description containing no useful information what so ever'}</p>
-		<p>{"This delicious treat is perfect for any occasion, let it be birthdays, anniversaries, special events, or just for self pamper. Made with the finest and richest indulgent ingredients, everything we create at Coco Rush is full of awesomeness, because you are too!"}</p>
+		<p>{props.product.description || 'Randomest one liner description containing no useful information what so ever'}</p>
+		{/* <p>{"This delicious treat is perfect for any occasion, let it be birthdays, anniversaries, special events, or just for self pamper. Made with the finest and richest indulgent ingredients, everything we create at Coco Rush is full of awesomeness, because you are too!"}</p> */}
 	</div>
 }
 
 function Price(props) {
 	return <div className="descriptionElement price">
-		<Discount newPrice={123} oldPrice={0} percentOff={0} type="dark" />
+		<Discount newPrice={props.product.unitPrice} oldPrice={0} percentOff={props.product.discount} type="dark" />
 	</div>
 }
 
@@ -46,9 +46,9 @@ function Actions(props) {
 export default function ProductElements(props) {
 	return <center>
 		<HeartIcon />
-		<ProductName />
-		<Price />
-		<Actions />
-		<Description />
+		<ProductName {...props}/>
+		<Price {...props}/>
+		<Actions {...props}/>
+		<Description {...props}/>
 	</center>
 }

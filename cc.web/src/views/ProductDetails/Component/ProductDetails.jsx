@@ -1,11 +1,16 @@
 import React from 'react';
 import { Paper } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
+import qs from 'query-string'
 import { Layout } from '../../../components'
 import ProductElements from './ProductElements';
 import './style.scss';
 
 class ProductDetails extends React.Component {
+  componentDidMount() {
+    const {id} = qs.parse(window.location.search);
+    this.props.getProductDetails(id);
+  }
   render() {
     return (
       <Layout {...this.props}>
@@ -15,7 +20,7 @@ class ProductDetails extends React.Component {
           </Grid>
           <Grid item xs={12} sm={5} container>
             <Paper className="description" elevation={3}>
-              <ProductElements product={this.props.product}/>
+              <ProductElements product={this.props.productDetails}/>
             </Paper>
           </Grid>
         </Grid>

@@ -1,3 +1,3 @@
-import ProductDetails from './Component';
+import ProductDetails from './Containers/ProductDetails';
 
 export default ProductDetails;
