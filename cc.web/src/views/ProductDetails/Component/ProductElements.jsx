@@ -37,7 +37,7 @@ function Actions(props) {
 				<Quantity {...props} type="light" />
 			</Grid>
 			<Grid item xs={12} md={10}>
-				<Button variant="contained" fullWidth={true} className="cart-button">Add to cart</Button>
+				<Button variant="contained" fullWidth={true} className="cart-button" onClick={props.addToCart}>Add to cart</Button>
 			</Grid>
 		</Grid>
 	</div>

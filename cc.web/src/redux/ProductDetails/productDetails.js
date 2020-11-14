@@ -15,18 +15,27 @@ const productDetailsReducer = (state = initialState, action) => {
         fetching: true,
       };
 
-    case actions.GET_PRODUCT_DETAILS_COMPLETED:{
+    case actions.GET_PRODUCT_DETAILS_COMPLETED:
       return {
         ...state,
         fetching: false,
         productDetails: action.response
       };
-}
     case actions.GET_PRODUCT_DETAILS_FAILED:
       return {
         ...state,
         fetching: false,
         error: action.error
+      };
+    case actions.INCREASE_QUANTITY:
+      return {
+        ...state,
+        quantity: action.quantity + 1,
+      };
+    case actions.DECREASE_QUANTITY:
+      return {
+        ...state,
+        quantity: action.quantity > 1 ? action.quantity - 1 : 1
       };
     default:
       return {

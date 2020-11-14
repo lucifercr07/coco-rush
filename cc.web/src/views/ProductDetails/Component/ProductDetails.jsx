@@ -8,10 +8,24 @@ import './style.scss';
 
 class ProductDetails extends React.Component {
   componentDidMount() {
-    const {id} = qs.parse(window.location.search);
+    const { id } = qs.parse(window.location.search);
     this.props.getProductDetails(id);
   }
   render() {
+    const {
+      productDetails,
+      quantity,
+      onAddClick,
+      onRemoveClick,
+      addToCart,
+    } = this.props
+    const productElementsProps = {
+      product: productDetails,
+      quantity,
+      onAddClick,
+      onRemoveClick,
+      addToCart,
+    }
     return (
       <Layout {...this.props}>
         <Grid container direction="row" justify="center" alignItems="center">
@@ -20,7 +34,7 @@ class ProductDetails extends React.Component {
           </Grid>
           <Grid item xs={12} sm={5} container>
             <Paper className="description" elevation={3}>
-              <ProductElements product={this.props.productDetails}/>
+              <ProductElements {...productElementsProps} />
             </Paper>
           </Grid>
         </Grid>
