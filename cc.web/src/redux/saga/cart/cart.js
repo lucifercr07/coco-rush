@@ -7,6 +7,7 @@ import {
   ACTIONS,
   actionCreators
 } from '../../Cart'
+import { isEmpty, head } from 'lodash';
 
 // import { landing } from '../../../gateway'
 
@@ -48,11 +49,14 @@ export function* addProductToCart(action) {
   const { id, quantity } = action.body;
   const productIdInCart = valuesInCart.filter(product => product.id === id);
   let finalQuantity = quantity;
-
-  if (productIdInCart) {
-    finalQuantity += productIdInCart.quantity;
+  if (isEmpty(valuesInCart) || isEmpty(productIdInCart)) {
+    valuesInCart.push({ id, quantity: finalQuantity });
   }
-  valuesInCart.push({ id, quantity: finalQuantity });
+  if (!isEmpty(productIdInCart)) {
+    finalQuantity += head(productIdInCart).quantity || 0;
+    valuesInCart.forEach(product => { if (product.id === id) product.quantity = finalQuantity })
+  }
+  
   window.localStorage.setItem('CART', JSON.stringify(valuesInCart));
   yield put(actionCreators.setCartProducts(valuesInCart));
 }

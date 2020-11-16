@@ -4,7 +4,8 @@ import * as actions from './actions'
 const initialState = {
   fetching: false,
   productDetails: {},
-  error: ''
+  error: '',
+  quantity: 1
 }
 
 const productDetailsReducer = (state = initialState, action) => {
@@ -19,7 +20,8 @@ const productDetailsReducer = (state = initialState, action) => {
       return {
         ...state,
         fetching: false,
-        productDetails: action.response
+        productDetails: action.response,
+        quantity: 1
       };
     case actions.GET_PRODUCT_DETAILS_FAILED:
       return {

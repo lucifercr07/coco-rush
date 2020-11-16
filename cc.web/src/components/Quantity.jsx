@@ -2,7 +2,6 @@ import React from 'react';
 import { Form, InputGroup } from 'react-bootstrap';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
-import { get } from 'lodash';
 import '../styles/quantity.scss';
 
 export default function Quantity(props) {
