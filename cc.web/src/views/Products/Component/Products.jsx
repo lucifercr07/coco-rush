@@ -4,18 +4,11 @@ import { Container, Grid } from '@material-ui/core';
 import { Layout } from '../../../components';
 import ProductCarousel from './ProductCarousel';
 import './style.scss';
-import {CATEGORIES} from '../../../constants';
+import { CATEGORIES } from '../../../constants';
 
 class Products extends React.Component {
   componentWillMount() {
     window.scrollTo(0, 0);
-    const {
-      products,
-      getProducts,
-    } = this.props;
-    if (isEmpty(products)) {
-      getProducts();
-    }
   }
 
   render() {
@@ -23,29 +16,29 @@ class Products extends React.Component {
       fetching,
       productsByCategory
     } = this.props;
-    
+
     return (
       <Layout {...this.props}>
         <Container maxWidth="lg">
-          <br/>
+          <br />
           {CATEGORIES.map((category, index) => !isEmpty(productsByCategory[category]) ?
 
-                <div className="cardFont" key={index}>
-                  <div className="" >
-                    <h2><b>{capitalize(category)}</b></h2>
-                  </div>
-                  <hr />
-                  <ProductCarousel
-                    products={productsByCategory[category]}
-                    history={this.props.history} />
-                  <br />
-                  <br />
+            <div className="cardFont" key={index}>
+              <div className="" >
+                <h2><b>{capitalize(category)}</b></h2>
+              </div>
+              <hr />
+              <ProductCarousel
+                products={productsByCategory[category]}
+                history={this.props.history} />
+              <br />
+              <br />
 
-                </div>
+            </div>
             : ''
           )}
         </Container>
-          </Layout>
+      </Layout>
     )
   }
 }
