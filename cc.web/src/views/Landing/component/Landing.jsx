@@ -11,14 +11,6 @@ import './style.scss';
 class Landing extends React.Component {
   componentWillMount() {
     window.scrollTo(0, 0);
-    const {
-      products,
-      getProducts,
-    } = this.props;
-
-    if (isEmpty(products)) {
-      getProducts();
-    }
   }
 
   getFeaturedProducts = () => {
@@ -70,7 +62,8 @@ class Landing extends React.Component {
                 </Paper>
               </center>
             </React.Fragment>
-          }          <center style={{ margin: 'auto', width: '80%', marginBottom: '50px' }}>
+          }
+          <center style={{ margin: 'auto', width: '80%', marginBottom: '50px' }}>
             <Testimonials items={TESTIMONIALS} />
           </center>
 

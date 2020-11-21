@@ -1,16 +1,39 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import {createBrowserHistory} from 'history';
+import { connect } from 'react-redux';
+import { get } from 'lodash'
+import { createBrowserHistory } from 'history';
 import routes from './routes';
+import { actionCreators } from './redux/Landing';
 
-function CocoRushApp() {
-  return (
-    <React.Fragment>
-      <BrowserRouter history={createBrowserHistory()}>
-        {routes}
-      </BrowserRouter>
-    </React.Fragment>
-  );
+class CocoRushApp extends React.Component {
+  componentDidMount() {
+    this.props.getProducts()
+  }
+  render() {
+    return (
+      <React.Fragment>
+        <BrowserRouter history={createBrowserHistory()}>
+          {routes}
+        </BrowserRouter>
+      </React.Fragment>
+    );
+  }
 }
 
-export default CocoRushApp;
+const mapStateToProps = ({ landing }) => (
+  {
+    fetching: get(landing, 'fetching', false),
+    products: get(landing, 'products', []),
+  });
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getProducts: () => dispatch(actionCreators.getAllProducts()),
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CocoRushApp);
